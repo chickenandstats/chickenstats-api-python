@@ -76,17 +76,17 @@ jobs:
           TOX_GH_MAJOR_MINOR: ${{ matrix.python }}
 
       - name: Setup test suite
-        run: tox run --conf ./sdk/tox.ini --workdir ./sdk --root ./sdk -vv --notest --skip-missing-interpreters false
+        run: tox run --conf ./sdk/tox.ini --workdir ./sdk -vv --notest --skip-missing-interpreters false
         env:
           TOX_GH_MAJOR_MINOR: ${{ matrix.python }}
 
       - name: Run tox
-        run: tox run --conf ./sdk/tox.ini --workdir ./sdk --root ./sdk # --skip-pkg-install
+        run: tox run --conf ./sdk/tox.ini --workdir ./sdk # --skip-pkg-install
 
         env:
           GITHUB_ACTIONS: true
           TOX_GH_MAJOR_MINOR: ${{ matrix.python }}
-          COVERAGE_FILE_NAME: ./sdk/.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
+          COVERAGE_FILE_NAME: ./.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
 
       - name: Display structure of files
         if: |
@@ -98,7 +98,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.tox }}-${{ matrix.os-alt }}
-          path: ./sdk/.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
+          path: ./.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
           include-hidden-files: true
 
   report:
