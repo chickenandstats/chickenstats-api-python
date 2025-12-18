@@ -56,7 +56,6 @@ jobs:
         with:
           enable-cache: true
           cache-dependency-glob: "pyproject.toml"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Add .local/bin to Windows PATH
         if: runner.os == 'Windows'
@@ -73,8 +72,6 @@ jobs:
       - name: Install tox
         run: uv tool install tox --with tox-uv --with tox-gh
         env:
-          CHICKENSTATS_USERNAME: ${{ secrets.CHICKENSTATS_USERNAME }}
-          CHICKENSTATS_PASSWORD: ${{ secrets.CHICKENSTATS_PASSWORD }}
           GITHUB_ACTIONS: true
           TOX_GH_MAJOR_MINOR: ${{ matrix.python }}
 
@@ -105,7 +102,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.tox }}-${{ matrix.os-alt }}
-          path: ./.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
+          path: ./sdk/.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
           include-hidden-files: true
 
   report:
