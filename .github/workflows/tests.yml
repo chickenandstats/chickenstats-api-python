@@ -98,7 +98,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.tox }}-${{ matrix.os-alt }}
-          path: ./sdk/.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
+          path: ./sdk/.coverage #.${{ matrix.tox }}-${{ matrix.os-alt }}
           include-hidden-files: true
 
   report:
