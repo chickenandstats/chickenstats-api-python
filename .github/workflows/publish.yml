@@ -25,7 +25,7 @@ jobs:
         run: uv sync --all-extras --dev
 
       - name: Build package
-        run: uv build --package ./sdk
+        run: uv build --package chickenstats_api
 
       - name: Publish package distributions to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
