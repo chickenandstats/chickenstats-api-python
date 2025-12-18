@@ -1,0 +1,18 @@
+# CLI options
+generatorName: python
+inputSpec: "https://api.chickenstats.com/api/v1/openapi.json"
+outputDir: ./sdk
+ignoreFileOverride: ./.openapi-generator-ignore
+gitUserId: chickenandstats
+gitRepoId: chickenstats-api-python
+
+# Global options
+
+# Python options
+packageName: chickenstats_api
+packageVersion: 0.0.1
+projectName: chickenstats-api
+class_overrides:
+  AppApiApiModelsChickenNhlPbpPublic:
+    class_name: PlayByPlay
+    module_name: play_by_play

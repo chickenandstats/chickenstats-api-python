@@ -1,0 +1,35 @@
+[project]
+name = "chickenstats-api-python"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "chickenstats>=1.7.3.8.9.10.24",
+    "chickenstats-api",
+    "jupyter>=1.1.1",
+    "lab>=8.6",
+    "openapi-generator>=1.0.6",
+    "pandas>=2.3.3",
+    "polars>=1.36.1",
+    "scikit-learn<1.8",
+]
+
+[project.optional-dependencies]
+all = [
+    "chickenstats>=1.7.3.8.9.10.24",
+]
+dev = [
+    "chickenstats>=1.7.3.8.9.10.24",
+]
+bokeh = [
+    "chickenstats>=1.7.3.8.9.10.24",
+]
+
+[tool.uv.workspace]
+members = [
+    "sdk",
+]
+
+[tool.uv.sources]
+chickenstats-api = { workspace = true }
