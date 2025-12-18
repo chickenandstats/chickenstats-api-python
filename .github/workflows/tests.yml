@@ -86,7 +86,7 @@ jobs:
         env:
           GITHUB_ACTIONS: true
           TOX_GH_MAJOR_MINOR: ${{ matrix.python }}
-          COVERAGE_FILE_NAME: ./.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
+          COVERAGE_FILE_NAME: ./sdk/.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
 
       - name: Display structure of files
         if: |
@@ -98,7 +98,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.tox }}-${{ matrix.os-alt }}
-          path: ./.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
+          path: ./sdk/.coverage.${{ matrix.tox }}-${{ matrix.os-alt }}
           include-hidden-files: true
 
   report:
