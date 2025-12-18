@@ -431,6 +431,11 @@ dev = [
     { name = "chickenstats" },
 ]
 
+[package.dev-dependencies]
+dev = [
+    { name = "chickenstats-api" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "chickenstats", specifier = ">=1.7.3.8.9.10.24" },
@@ -446,6 +451,9 @@ requires-dist = [
     { name = "scikit-learn", specifier = "<1.8" },
 ]
 provides-extras = ["all", "dev", "bokeh"]
+
+[package.metadata.requires-dev]
+dev = [{ name = "chickenstats-api", editable = "sdk" }]
 
 [[package]]
 name = "colorama"
