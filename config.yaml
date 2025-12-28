@@ -12,6 +12,7 @@ gitRepoId: chickenstats-api-python
 packageName: chickenstats_api
 packageVersion: 0.0.1
 projectName: chickenstats-api
+packageUrl: "https://pypi.org/project/chickenstats-api/"
 class_overrides:
   AppApiApiModelsChickenNhlPbpPublic:
     class_name: PlayByPlay

@@ -37,7 +37,7 @@ setup(
     description="chickenstats API",
     author="chicken",
     author_email="chicken@chickenandstats.com",
-    url="",
+    url="https://pypi.org/project/chickenstats-api/",
     keywords=["OpenAPI", "OpenAPI-Generator", "chickenstats API"],
     install_requires=REQUIRES,
     packages=find_packages(exclude=["test", "tests"]),
