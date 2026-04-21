@@ -1,8 +1,8 @@
 name: publish
 
 on:
-  repository_dispatch:
-    types: [release]
+  release:
+    types: [published]
 
 jobs:
   publish:
