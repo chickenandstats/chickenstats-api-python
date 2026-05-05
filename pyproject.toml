@@ -3,9 +3,9 @@ name = "chickenstats_api"
 version = "0.1.3"
 description = "chickenstats API"
 authors = [
-  {name = "OpenAPI Generator Community",email = "team@openapitools.org"},
+  {name = "chicken",email = "chicken@chickenandstats.com"},
 ]
-license = "NoLicense"
+license = "MIT"
 readme = "README.md"
 keywords = ["OpenAPI", "OpenAPI-Generator", "chickenstats API"]
 requires-python = ">=3.9"

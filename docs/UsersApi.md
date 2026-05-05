@@ -1,6 +1,6 @@
 # chickenstats_api.UsersApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.chickenstats.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -32,10 +32,10 @@ from chickenstats_api.models.message import Message
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -105,10 +105,10 @@ from chickenstats_api.models.programmatic_credentials import ProgrammaticCredent
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -176,10 +176,10 @@ from chickenstats_api.models.user_public import UserPublic
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -247,10 +247,10 @@ from chickenstats_api.models.message import Message
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -320,10 +320,10 @@ from chickenstats_api.models.programmatic_credentials import ProgrammaticCredent
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -394,10 +394,10 @@ from chickenstats_api.models.user_register import UserRegister
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 
@@ -464,10 +464,10 @@ from chickenstats_api.models.message import Message
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -536,10 +536,10 @@ from chickenstats_api.models.update_password import UpdatePassword
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -613,10 +613,10 @@ from chickenstats_api.models.user_update_me import UserUpdateMe
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 # The client must configure the authentication and authorization parameters

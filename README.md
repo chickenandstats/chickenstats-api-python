@@ -27,10 +27,10 @@ import chickenstats_api
 from chickenstats_api.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://api.chickenstats.com
 # See configuration.py for a list of all supported configuration parameters.
 configuration = chickenstats_api.Configuration(
-    host = "http://localhost"
+    host = "https://api.chickenstats.com"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -70,7 +70,7 @@ with chickenstats_api.ApiClient(configuration) as api_client:
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api.chickenstats.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
@@ -158,6 +158,6 @@ Authentication schemes defined for the API:
 
 ## Author
 
-
+chicken@chickenandstats.com
 
 
