@@ -2,8 +2,8 @@
 
 API for downloading NHL data
 
-- API version: 0.1.3
-- Package version: 0.1.3
+- API version: 0.1.4
+- Package version: 0.1.4
 
 ## Requirements
 
