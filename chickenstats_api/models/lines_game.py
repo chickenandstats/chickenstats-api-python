@@ -34,6 +34,14 @@ class LinesGame(BaseModel):
     ga_adj: Optional[Union[StrictFloat, StrictInt]] = 0
     hdgf: Optional[StrictInt] = 0
     hdga: Optional[StrictInt] = 0
+    base_xgf: Optional[Union[StrictFloat, StrictInt]] = 0
+    base_xga: Optional[Union[StrictFloat, StrictInt]] = 0
+    base_xgf_adj: Optional[Union[StrictFloat, StrictInt]] = 0
+    base_xga_adj: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_xgf: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_xga: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_xgf_adj: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_xga_adj: Optional[Union[StrictFloat, StrictInt]] = 0
     xgf: Optional[Union[StrictFloat, StrictInt]] = 0
     xga: Optional[Union[StrictFloat, StrictInt]] = 0
     xgf_adj: Optional[Union[StrictFloat, StrictInt]] = 0
@@ -116,7 +124,7 @@ class LinesGame(BaseModel):
     opp_goalie: Optional[StrictStr] = None
     opp_goalie_eh_id: Optional[StrictStr] = None
     opp_goalie_api_id: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["toi", "gf", "ga", "gf_adj", "ga_adj", "hdgf", "hdga", "xgf", "xga", "xgf_adj", "xga_adj", "sf", "sa", "sf_adj", "sa_adj", "hdsf", "hdsa", "ff", "fa", "ff_adj", "fa_adj", "hdff", "hdfa", "cf", "ca", "cf_adj", "ca_adj", "bsf", "bsa", "bsf_adj", "bsa_adj", "msf", "msa", "msf_adj", "msa_adj", "hdmsf", "hdmsa", "teammate_block", "teammate_block_adj", "hf", "ht", "ozf", "nzf", "dzf", "fow", "fol", "ozfw", "ozfl", "nzfw", "nzfl", "dzfw", "dzfl", "pent0", "pent2", "pent4", "pent5", "pent10", "pend0", "pend2", "pend4", "pend5", "pend10", "season", "session", "game_id", "game_date", "team", "opp_team", "strength_state", "period", "score_state", "forwards", "forwards_eh_id", "forwards_api_id", "defense", "defense_eh_id", "defense_api_id", "own_goalie", "own_goalie_eh_id", "own_goalie_api_id", "opp_forwards", "opp_forwards_eh_id", "opp_forwards_api_id", "opp_defense", "opp_defense_eh_id", "opp_defense_api_id", "opp_goalie", "opp_goalie_eh_id", "opp_goalie_api_id"]
+    __properties: ClassVar[List[str]] = ["toi", "gf", "ga", "gf_adj", "ga_adj", "hdgf", "hdga", "base_xgf", "base_xga", "base_xgf_adj", "base_xga_adj", "context_xgf", "context_xga", "context_xgf_adj", "context_xga_adj", "xgf", "xga", "xgf_adj", "xga_adj", "sf", "sa", "sf_adj", "sa_adj", "hdsf", "hdsa", "ff", "fa", "ff_adj", "fa_adj", "hdff", "hdfa", "cf", "ca", "cf_adj", "ca_adj", "bsf", "bsa", "bsf_adj", "bsa_adj", "msf", "msa", "msf_adj", "msa_adj", "hdmsf", "hdmsa", "teammate_block", "teammate_block_adj", "hf", "ht", "ozf", "nzf", "dzf", "fow", "fol", "ozfw", "ozfl", "nzfw", "nzfl", "dzfw", "dzfl", "pent0", "pent2", "pent4", "pent5", "pent10", "pend0", "pend2", "pend4", "pend5", "pend10", "season", "session", "game_id", "game_date", "team", "opp_team", "strength_state", "period", "score_state", "forwards", "forwards_eh_id", "forwards_api_id", "defense", "defense_eh_id", "defense_api_id", "own_goalie", "own_goalie_eh_id", "own_goalie_api_id", "opp_forwards", "opp_forwards_eh_id", "opp_forwards_api_id", "opp_defense", "opp_defense_eh_id", "opp_defense_api_id", "opp_goalie", "opp_goalie_eh_id", "opp_goalie_api_id"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -286,6 +294,14 @@ class LinesGame(BaseModel):
             "ga_adj": obj.get("ga_adj") if obj.get("ga_adj") is not None else 0,
             "hdgf": obj.get("hdgf") if obj.get("hdgf") is not None else 0,
             "hdga": obj.get("hdga") if obj.get("hdga") is not None else 0,
+            "base_xgf": obj.get("base_xgf") if obj.get("base_xgf") is not None else 0,
+            "base_xga": obj.get("base_xga") if obj.get("base_xga") is not None else 0,
+            "base_xgf_adj": obj.get("base_xgf_adj") if obj.get("base_xgf_adj") is not None else 0,
+            "base_xga_adj": obj.get("base_xga_adj") if obj.get("base_xga_adj") is not None else 0,
+            "context_xgf": obj.get("context_xgf") if obj.get("context_xgf") is not None else 0,
+            "context_xga": obj.get("context_xga") if obj.get("context_xga") is not None else 0,
+            "context_xgf_adj": obj.get("context_xgf_adj") if obj.get("context_xgf_adj") is not None else 0,
+            "context_xga_adj": obj.get("context_xga_adj") if obj.get("context_xga_adj") is not None else 0,
             "xgf": obj.get("xgf") if obj.get("xgf") is not None else 0,
             "xga": obj.get("xga") if obj.get("xga") is not None else 0,
             "xgf_adj": obj.get("xgf_adj") if obj.get("xgf_adj") is not None else 0,

@@ -44,27 +44,20 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 with chickenstats_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = chickenstats_api.LinesApi(api_client)
+    api_instance = chickenstats_api.InferenceApi(api_client)
+    game_id = [56] # List[int] |  (optional)
     season = [56] # List[int] |  (optional)
     sessions = ['sessions_example'] # List[str] |  (optional)
-    game_id = [56] # List[int] |  (optional)
-    team = ['team_example'] # List[str] |  (optional)
-    opp_team = ['opp_team_example'] # List[str] |  (optional)
-    strength_state = ['strength_state_example'] # List[str] |  (optional)
-    score_state = True # bool |  (optional)
-    level = 'level_example' # str |  (optional)
-    linemates = True # bool |  (optional)
-    opposition = True # bool |  (optional)
     limit = 10000 # int |  (optional) (default to 10000)
     offset = 0 # int |  (optional) (default to 0)
 
     try:
-        # Read Game Lines
-        api_response = api_instance.read_game_lines(season=season, sessions=sessions, game_id=game_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, level=level, linemates=linemates, opposition=opposition, limit=limit, offset=offset)
-        print("The response of LinesApi->read_game_lines:\n")
+        # Read Pred Goal
+        api_response = api_instance.read_pred_goal(game_id=game_id, season=season, sessions=sessions, limit=limit, offset=offset)
+        print("The response of InferenceApi->read_pred_goal:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling LinesApi->read_game_lines: %s\n" % e)
+        print("Exception when calling InferenceApi->read_pred_goal: %s\n" % e)
 
 ```
 
@@ -74,10 +67,13 @@ All URIs are relative to *https://api.chickenstats.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*InferenceApi* | [**read_pred_goal**](docs/InferenceApi.md#read_pred_goal) | **GET** /api/v1/inference/pred_goal | Read Pred Goal
 *LinesApi* | [**read_game_lines**](docs/LinesApi.md#read_game_lines) | **GET** /api/v1/chicken_nhl/lines/game | Read Game Lines
 *LinesApi* | [**read_line_ids**](docs/LinesApi.md#read_line_ids) | **GET** /api/v1/chicken_nhl/lines/line_ids | Read Line Ids
 *LinesApi* | [**read_lines_game_ids**](docs/LinesApi.md#read_lines_game_ids) | **GET** /api/v1/chicken_nhl/lines/game_ids | Read Lines Game Ids
 *LinesApi* | [**read_season_lines**](docs/LinesApi.md#read_season_lines) | **GET** /api/v1/chicken_nhl/lines/season | Read Season Lines
+*LiveApi* | [**read_live_games**](docs/LiveApi.md#read_live_games) | **GET** /api/v1/live/games | Read Live Games
+*LiveApi* | [**read_live_pbp**](docs/LiveApi.md#read_live_pbp) | **GET** /api/v1/live/play_by_play | Read Live Pbp
 *LoginApi* | [**login_auth0_token**](docs/LoginApi.md#login_auth0_token) | **POST** /api/v1/login/auth0-token | Login Auth0 Token
 *LoginApi* | [**login_callback**](docs/LoginApi.md#login_callback) | **POST** /api/v1/login/callback | Login Callback
 *LoginApi* | [**recover_password**](docs/LoginApi.md#recover_password) | **POST** /api/v1/password-recovery/{email} | Recover Password
@@ -87,6 +83,7 @@ Class | Method | HTTP request | Description
 *PlayByPlayApi* | [**read_pbp**](docs/PlayByPlayApi.md#read_pbp) | **GET** /api/v1/chicken_nhl/play_by_play | Read Pbp
 *PlayByPlayApi* | [**read_pbp_game_ids**](docs/PlayByPlayApi.md#read_pbp_game_ids) | **GET** /api/v1/chicken_nhl/play_by_play/game_ids | Read Pbp Game Ids
 *PlayByPlayApi* | [**read_pbp_play_ids**](docs/PlayByPlayApi.md#read_pbp_play_ids) | **GET** /api/v1/chicken_nhl/play_by_play/play_ids | Read Pbp Play Ids
+*RapmApi* | [**read_rapm**](docs/RapmApi.md#read_rapm) | **GET** /api/v1/chicken_nhl/rapm | Read Rapm
 *StatsApi* | [**read_game_stats**](docs/StatsApi.md#read_game_stats) | **GET** /api/v1/chicken_nhl/stats/game | Read Game Stats
 *StatsApi* | [**read_season_stats**](docs/StatsApi.md#read_season_stats) | **GET** /api/v1/chicken_nhl/stats/season | Read Season Stats
 *StatsApi* | [**read_stats_game_ids**](docs/StatsApi.md#read_stats_game_ids) | **GET** /api/v1/chicken_nhl/stats/game_ids | Read Stats Game Ids
@@ -114,11 +111,18 @@ Class | Method | HTTP request | Description
  - [LinesPublic](docs/LinesPublic.md)
  - [LinesSeason](docs/LinesSeason.md)
  - [LinesSeasonResponse](docs/LinesSeasonResponse.md)
+ - [LiveGamesPublic](docs/LiveGamesPublic.md)
+ - [LivePbpPublic](docs/LivePbpPublic.md)
+ - [LivePbpResponse](docs/LivePbpResponse.md)
  - [Message](docs/Message.md)
  - [NewPassword](docs/NewPassword.md)
  - [PbpPublic](docs/PbpPublic.md)
  - [PbpResponse](docs/PbpResponse.md)
+ - [PredGoalResponse](docs/PredGoalResponse.md)
+ - [PredGoalRow](docs/PredGoalRow.md)
  - [ProgrammaticCredentials](docs/ProgrammaticCredentials.md)
+ - [RapmResponse](docs/RapmResponse.md)
+ - [RapmScores](docs/RapmScores.md)
  - [StatsCreate](docs/StatsCreate.md)
  - [StatsGame](docs/StatsGame.md)
  - [StatsGameResponse](docs/StatsGameResponse.md)

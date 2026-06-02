@@ -52,7 +52,7 @@ class PlayByPlayApi:
         event_team: Optional[List[StrictStr]] = None,
         opp_team: Optional[List[StrictStr]] = None,
         strength_state: Optional[List[StrictStr]] = None,
-        limit: Optional[Annotated[int, Field(le=100000, strict=True, ge=1)]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
         offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> PbpResponse:
@@ -130,7 +130,7 @@ class PlayByPlayApi:
         event_team: Optional[List[StrictStr]] = None,
         opp_team: Optional[List[StrictStr]] = None,
         strength_state: Optional[List[StrictStr]] = None,
-        limit: Optional[Annotated[int, Field(le=100000, strict=True, ge=1)]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
         offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> ApiResponse[PbpResponse]:
@@ -208,7 +208,7 @@ class PlayByPlayApi:
         event_team: Optional[List[StrictStr]] = None,
         opp_team: Optional[List[StrictStr]] = None,
         strength_state: Optional[List[StrictStr]] = None,
-        limit: Optional[Annotated[int, Field(le=100000, strict=True, ge=1)]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
         offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> RESTResponseType:

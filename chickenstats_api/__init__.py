@@ -19,9 +19,12 @@ __version__ = "0.1.4"
 
 # Define package exports
 __all__ = [
+    "InferenceApi",
     "LinesApi",
+    "LiveApi",
     "LoginApi",
     "PlayByPlayApi",
+    "RapmApi",
     "StatsApi",
     "TeamStatsApi",
     "UsersApi",
@@ -41,11 +44,18 @@ __all__ = [
     "LinesPublic",
     "LinesSeason",
     "LinesSeasonResponse",
+    "LiveGamesPublic",
+    "LivePbpPublic",
+    "LivePbpResponse",
     "Message",
     "NewPassword",
     "PbpPublic",
     "PbpResponse",
+    "PredGoalResponse",
+    "PredGoalRow",
     "ProgrammaticCredentials",
+    "RapmResponse",
+    "RapmScores",
     "StatsCreate",
     "StatsGame",
     "StatsGameResponse",
@@ -70,9 +80,12 @@ __all__ = [
 ]
 
 # import apis into sdk package
+from chickenstats_api.api.inference_api import InferenceApi as InferenceApi
 from chickenstats_api.api.lines_api import LinesApi as LinesApi
+from chickenstats_api.api.live_api import LiveApi as LiveApi
 from chickenstats_api.api.login_api import LoginApi as LoginApi
 from chickenstats_api.api.play_by_play_api import PlayByPlayApi as PlayByPlayApi
+from chickenstats_api.api.rapm_api import RapmApi as RapmApi
 from chickenstats_api.api.stats_api import StatsApi as StatsApi
 from chickenstats_api.api.team_stats_api import TeamStatsApi as TeamStatsApi
 from chickenstats_api.api.users_api import UsersApi as UsersApi
@@ -96,11 +109,18 @@ from chickenstats_api.models.lines_game_response import LinesGameResponse as Lin
 from chickenstats_api.models.lines_public import LinesPublic as LinesPublic
 from chickenstats_api.models.lines_season import LinesSeason as LinesSeason
 from chickenstats_api.models.lines_season_response import LinesSeasonResponse as LinesSeasonResponse
+from chickenstats_api.models.live_games_public import LiveGamesPublic as LiveGamesPublic
+from chickenstats_api.models.live_pbp_public import LivePbpPublic as LivePbpPublic
+from chickenstats_api.models.live_pbp_response import LivePbpResponse as LivePbpResponse
 from chickenstats_api.models.message import Message as Message
 from chickenstats_api.models.new_password import NewPassword as NewPassword
 from chickenstats_api.models.pbp_public import PbpPublic as PbpPublic
 from chickenstats_api.models.pbp_response import PbpResponse as PbpResponse
+from chickenstats_api.models.pred_goal_response import PredGoalResponse as PredGoalResponse
+from chickenstats_api.models.pred_goal_row import PredGoalRow as PredGoalRow
 from chickenstats_api.models.programmatic_credentials import ProgrammaticCredentials as ProgrammaticCredentials
+from chickenstats_api.models.rapm_response import RapmResponse as RapmResponse
+from chickenstats_api.models.rapm_scores import RapmScores as RapmScores
 from chickenstats_api.models.stats_create import StatsCreate as StatsCreate
 from chickenstats_api.models.stats_game import StatsGame as StatsGame
 from chickenstats_api.models.stats_game_response import StatsGameResponse as StatsGameResponse

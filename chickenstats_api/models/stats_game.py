@@ -64,8 +64,12 @@ class StatsGame(BaseModel):
     ihdg: Optional[StrictInt] = 0
     a1: Optional[StrictInt] = 0
     a2: Optional[StrictInt] = 0
+    base_ixg: Optional[Union[StrictFloat, StrictInt]] = 0
+    base_ixg_adj: Optional[Union[StrictFloat, StrictInt]] = 0
     ixg: Optional[Union[StrictFloat, StrictInt]] = 0
     ixg_adj: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_ixg: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_ixg_adj: Optional[Union[StrictFloat, StrictInt]] = 0
     isf: Optional[StrictInt] = 0
     isf_adj: Optional[Union[StrictFloat, StrictInt]] = 0
     ihdsf: Optional[StrictInt] = 0
@@ -111,6 +115,14 @@ class StatsGame(BaseModel):
     ga_adj: Optional[Union[StrictFloat, StrictInt]] = 0
     hdgf: Optional[StrictInt] = 0
     hdga: Optional[StrictInt] = 0
+    base_xgf: Optional[Union[StrictFloat, StrictInt]] = 0
+    base_xga: Optional[Union[StrictFloat, StrictInt]] = 0
+    base_xgf_adj: Optional[Union[StrictFloat, StrictInt]] = 0
+    base_xga_adj: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_xgf: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_xga: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_xgf_adj: Optional[Union[StrictFloat, StrictInt]] = 0
+    context_xga_adj: Optional[Union[StrictFloat, StrictInt]] = 0
     xgf: Optional[Union[StrictFloat, StrictInt]] = 0
     xga: Optional[Union[StrictFloat, StrictInt]] = 0
     xgf_adj: Optional[Union[StrictFloat, StrictInt]] = 0
@@ -170,7 +182,7 @@ class StatsGame(BaseModel):
     nzs: Optional[StrictInt] = 0
     dzs: Optional[StrictInt] = 0
     otf: Optional[StrictInt] = 0
-    __properties: ClassVar[List[str]] = ["season", "session", "game_id", "game_date", "player", "eh_id", "api_id", "position", "team", "opp_team", "strength_state", "period", "score_state", "forwards", "forwards_eh_id", "forwards_api_id", "defense", "defense_eh_id", "defense_api_id", "own_goalie", "own_goalie_eh_id", "own_goalie_api_id", "opp_forwards", "opp_forwards_eh_id", "opp_forwards_api_id", "opp_defense", "opp_defense_eh_id", "opp_defense_api_id", "opp_goalie", "opp_goalie_eh_id", "opp_goalie_api_id", "toi", "g", "g_adj", "ihdg", "a1", "a2", "ixg", "ixg_adj", "isf", "isf_adj", "ihdsf", "imsf", "imsf_adj", "ihdm", "iff", "iff_adj", "ihdf", "isb", "isb_adj", "icf", "icf_adj", "ibs", "ibs_adj", "igive", "itake", "ihf", "iht", "ifow", "ifol", "iozfw", "iozfl", "inzfw", "inzfl", "idzfw", "idzfl", "a1_xg", "a2_xg", "ipent0", "ipent2", "ipent4", "ipent5", "ipent10", "ipend0", "ipend2", "ipend4", "ipend5", "ipend10", "gf", "ga", "gf_adj", "ga_adj", "hdgf", "hdga", "xgf", "xga", "xgf_adj", "xga_adj", "sf", "sa", "sf_adj", "sa_adj", "hdsf", "hdsa", "ff", "fa", "ff_adj", "fa_adj", "hdff", "hdfa", "cf", "ca", "cf_adj", "ca_adj", "bsf", "bsa", "bsf_adj", "bsa_adj", "msf", "msa", "msf_adj", "msa_adj", "hdmsf", "hdmsa", "teammate_block", "teammate_block_adj", "hf", "ht", "ozf", "nzf", "dzf", "fow", "fol", "ozfw", "ozfl", "nzfw", "nzfl", "dzfw", "dzfl", "pent0", "pent2", "pent4", "pent5", "pent10", "pend0", "pend2", "pend4", "pend5", "pend10", "ozs", "nzs", "dzs", "otf"]
+    __properties: ClassVar[List[str]] = ["season", "session", "game_id", "game_date", "player", "eh_id", "api_id", "position", "team", "opp_team", "strength_state", "period", "score_state", "forwards", "forwards_eh_id", "forwards_api_id", "defense", "defense_eh_id", "defense_api_id", "own_goalie", "own_goalie_eh_id", "own_goalie_api_id", "opp_forwards", "opp_forwards_eh_id", "opp_forwards_api_id", "opp_defense", "opp_defense_eh_id", "opp_defense_api_id", "opp_goalie", "opp_goalie_eh_id", "opp_goalie_api_id", "toi", "g", "g_adj", "ihdg", "a1", "a2", "base_ixg", "base_ixg_adj", "ixg", "ixg_adj", "context_ixg", "context_ixg_adj", "isf", "isf_adj", "ihdsf", "imsf", "imsf_adj", "ihdm", "iff", "iff_adj", "ihdf", "isb", "isb_adj", "icf", "icf_adj", "ibs", "ibs_adj", "igive", "itake", "ihf", "iht", "ifow", "ifol", "iozfw", "iozfl", "inzfw", "inzfl", "idzfw", "idzfl", "a1_xg", "a2_xg", "ipent0", "ipent2", "ipent4", "ipent5", "ipent10", "ipend0", "ipend2", "ipend4", "ipend5", "ipend10", "gf", "ga", "gf_adj", "ga_adj", "hdgf", "hdga", "base_xgf", "base_xga", "base_xgf_adj", "base_xga_adj", "context_xgf", "context_xga", "context_xgf_adj", "context_xga_adj", "xgf", "xga", "xgf_adj", "xga_adj", "sf", "sa", "sf_adj", "sa_adj", "hdsf", "hdsa", "ff", "fa", "ff_adj", "fa_adj", "hdff", "hdfa", "cf", "ca", "cf_adj", "ca_adj", "bsf", "bsa", "bsf_adj", "bsa_adj", "msf", "msa", "msf_adj", "msa_adj", "hdmsf", "hdmsa", "teammate_block", "teammate_block_adj", "hf", "ht", "ozf", "nzf", "dzf", "fow", "fol", "ozfw", "ozfl", "nzfw", "nzfl", "dzfw", "dzfl", "pent0", "pent2", "pent4", "pent5", "pent10", "pend0", "pend2", "pend4", "pend5", "pend10", "ozs", "nzs", "dzs", "otf"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -370,8 +382,12 @@ class StatsGame(BaseModel):
             "ihdg": obj.get("ihdg") if obj.get("ihdg") is not None else 0,
             "a1": obj.get("a1") if obj.get("a1") is not None else 0,
             "a2": obj.get("a2") if obj.get("a2") is not None else 0,
+            "base_ixg": obj.get("base_ixg") if obj.get("base_ixg") is not None else 0,
+            "base_ixg_adj": obj.get("base_ixg_adj") if obj.get("base_ixg_adj") is not None else 0,
             "ixg": obj.get("ixg") if obj.get("ixg") is not None else 0,
             "ixg_adj": obj.get("ixg_adj") if obj.get("ixg_adj") is not None else 0,
+            "context_ixg": obj.get("context_ixg") if obj.get("context_ixg") is not None else 0,
+            "context_ixg_adj": obj.get("context_ixg_adj") if obj.get("context_ixg_adj") is not None else 0,
             "isf": obj.get("isf") if obj.get("isf") is not None else 0,
             "isf_adj": obj.get("isf_adj") if obj.get("isf_adj") is not None else 0,
             "ihdsf": obj.get("ihdsf") if obj.get("ihdsf") is not None else 0,
@@ -417,6 +433,14 @@ class StatsGame(BaseModel):
             "ga_adj": obj.get("ga_adj") if obj.get("ga_adj") is not None else 0,
             "hdgf": obj.get("hdgf") if obj.get("hdgf") is not None else 0,
             "hdga": obj.get("hdga") if obj.get("hdga") is not None else 0,
+            "base_xgf": obj.get("base_xgf") if obj.get("base_xgf") is not None else 0,
+            "base_xga": obj.get("base_xga") if obj.get("base_xga") is not None else 0,
+            "base_xgf_adj": obj.get("base_xgf_adj") if obj.get("base_xgf_adj") is not None else 0,
+            "base_xga_adj": obj.get("base_xga_adj") if obj.get("base_xga_adj") is not None else 0,
+            "context_xgf": obj.get("context_xgf") if obj.get("context_xgf") is not None else 0,
+            "context_xga": obj.get("context_xga") if obj.get("context_xga") is not None else 0,
+            "context_xgf_adj": obj.get("context_xgf_adj") if obj.get("context_xgf_adj") is not None else 0,
+            "context_xga_adj": obj.get("context_xga_adj") if obj.get("context_xga_adj") is not None else 0,
             "xgf": obj.get("xgf") if obj.get("xgf") is not None else 0,
             "xga": obj.get("xga") if obj.get("xga") is not None else 0,
             "xgf_adj": obj.get("xgf_adj") if obj.get("xgf_adj") is not None else 0,

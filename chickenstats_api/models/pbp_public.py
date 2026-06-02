@@ -183,8 +183,12 @@ class PbpPublic(BaseModel):
     change_off_goalie: Optional[StrictStr] = None
     change_off_goalie_eh_id: Optional[StrictStr] = None
     change_off_goalie_api_id: Optional[StrictStr] = None
-    pred_goal: Optional[Union[StrictFloat, StrictInt]] = 0
-    pred_goal_adj: Optional[Union[StrictFloat, StrictInt]] = 0
+    base_xg: Optional[Union[StrictFloat, StrictInt]] = None
+    base_xg_adj: Optional[Union[StrictFloat, StrictInt]] = None
+    context_xg: Optional[Union[StrictFloat, StrictInt]] = None
+    context_xg_adj: Optional[Union[StrictFloat, StrictInt]] = None
+    pred_goal: Optional[Union[StrictFloat, StrictInt]] = None
+    pred_goal_adj: Optional[Union[StrictFloat, StrictInt]] = None
     goal: Optional[StrictInt] = 0
     goal_adj: Optional[Union[StrictFloat, StrictInt]] = 0
     hd_goal: Optional[StrictInt] = 0
@@ -223,7 +227,7 @@ class PbpPublic(BaseModel):
     pen4: Optional[StrictInt] = 0
     pen5: Optional[StrictInt] = 0
     pen10: Optional[StrictInt] = 0
-    __properties: ClassVar[List[str]] = ["id", "season", "session", "game_id", "game_date", "event_idx", "period", "period_seconds", "game_seconds", "strength_state", "event_team", "opp_team", "event", "description", "zone", "coords_x", "coords_y", "danger", "high_danger", "player_1", "player_1_api_id", "player_1_eh_id", "player_1_position", "player_1_type", "player_2", "player_2_api_id", "player_2_eh_id", "player_2_position", "player_2_type", "player_3", "player_3_api_id", "player_3_eh_id", "player_3_position", "player_3_type", "score_state", "score_diff", "forwards_percent", "opp_forwards_percent", "shot_type", "event_length", "event_distance", "pbp_distance", "event_angle", "penalty", "penalty_length", "event_team_skaters", "teammates", "teammates_eh_id", "teammates_api_id", "teammates_positions", "own_goalie", "own_goalie_eh_id", "own_goalie_api_id", "forwards", "forwards_eh_id", "forwards_api_id", "forwards_count", "defense", "defense_eh_id", "defense_api_id", "defense_count", "opp_strength_state", "opp_score_state", "opp_score_diff", "opp_team_skaters", "opp_team_on", "opp_team_on_eh_id", "opp_team_on_api_id", "opp_team_on_positions", "opp_goalie", "opp_goalie_eh_id", "opp_goalie_api_id", "opp_forwards", "opp_forwards_eh_id", "opp_forwards_api_id", "opp_forwards_count", "opp_defense", "opp_defense_eh_id", "opp_defense_api_id", "opp_defense_count", "home_score", "home_score_diff", "away_score", "away_score_diff", "is_home", "is_away", "home_team", "away_team", "home_skaters", "away_skaters", "home_on", "home_on_eh_id", "home_on_api_id", "home_on_positions", "away_on", "away_on_eh_id", "away_on_api_id", "away_on_positions", "home_forwards", "home_forwards_eh_id", "home_forwards_api_id", "home_forwards_count", "home_forwards_percent", "home_defense", "home_defense_eh_id", "home_defense_api_id", "home_defense_count", "home_goalie", "home_goalie_eh_id", "home_goalie_api_id", "away_forwards", "away_forwards_eh_id", "away_forwards_api_id", "away_forwards_count", "away_forwards_percent", "away_defense", "away_defense_eh_id", "away_defense_api_id", "away_defense_count", "away_goalie", "away_goalie_eh_id", "away_goalie_api_id", "change_on_count", "change_off_count", "change_on", "change_on_eh_id", "change_on_api_id", "change_on_positions", "change_off", "change_off_eh_id", "change_off_api_id", "change_off_positions", "change_on_forwards_count", "change_off_forwards_count", "change_on_forwards", "change_on_forwards_eh_id", "change_on_forwards_api_id", "change_off_forwards", "change_off_forwards_eh_id", "change_off_forwards_api_id", "change_on_defense_count", "change_off_defense_count", "change_on_defense", "change_on_defense_eh_id", "change_on_defense_api_id", "change_off_defense", "change_off_defense_eh_id", "change_off_defense_api_id", "change_on_goalie_count", "change_off_goalie_count", "change_on_goalie", "change_on_goalie_eh_id", "change_on_goalie_api_id", "change_off_goalie", "change_off_goalie_eh_id", "change_off_goalie_api_id", "pred_goal", "pred_goal_adj", "goal", "goal_adj", "hd_goal", "shot", "shot_adj", "hd_shot", "miss", "miss_adj", "hd_miss", "fenwick", "fenwick_adj", "hd_fenwick", "corsi", "corsi_adj", "block", "block_adj", "teammate_block", "teammate_block_adj", "hit", "give", "take", "fac", "penl", "change", "stop", "chl", "ozf", "nzf", "dzf", "ozc", "nzc", "dzc", "otf", "pen0", "pen2", "pen4", "pen5", "pen10"]
+    __properties: ClassVar[List[str]] = ["id", "season", "session", "game_id", "game_date", "event_idx", "period", "period_seconds", "game_seconds", "strength_state", "event_team", "opp_team", "event", "description", "zone", "coords_x", "coords_y", "danger", "high_danger", "player_1", "player_1_api_id", "player_1_eh_id", "player_1_position", "player_1_type", "player_2", "player_2_api_id", "player_2_eh_id", "player_2_position", "player_2_type", "player_3", "player_3_api_id", "player_3_eh_id", "player_3_position", "player_3_type", "score_state", "score_diff", "forwards_percent", "opp_forwards_percent", "shot_type", "event_length", "event_distance", "pbp_distance", "event_angle", "penalty", "penalty_length", "event_team_skaters", "teammates", "teammates_eh_id", "teammates_api_id", "teammates_positions", "own_goalie", "own_goalie_eh_id", "own_goalie_api_id", "forwards", "forwards_eh_id", "forwards_api_id", "forwards_count", "defense", "defense_eh_id", "defense_api_id", "defense_count", "opp_strength_state", "opp_score_state", "opp_score_diff", "opp_team_skaters", "opp_team_on", "opp_team_on_eh_id", "opp_team_on_api_id", "opp_team_on_positions", "opp_goalie", "opp_goalie_eh_id", "opp_goalie_api_id", "opp_forwards", "opp_forwards_eh_id", "opp_forwards_api_id", "opp_forwards_count", "opp_defense", "opp_defense_eh_id", "opp_defense_api_id", "opp_defense_count", "home_score", "home_score_diff", "away_score", "away_score_diff", "is_home", "is_away", "home_team", "away_team", "home_skaters", "away_skaters", "home_on", "home_on_eh_id", "home_on_api_id", "home_on_positions", "away_on", "away_on_eh_id", "away_on_api_id", "away_on_positions", "home_forwards", "home_forwards_eh_id", "home_forwards_api_id", "home_forwards_count", "home_forwards_percent", "home_defense", "home_defense_eh_id", "home_defense_api_id", "home_defense_count", "home_goalie", "home_goalie_eh_id", "home_goalie_api_id", "away_forwards", "away_forwards_eh_id", "away_forwards_api_id", "away_forwards_count", "away_forwards_percent", "away_defense", "away_defense_eh_id", "away_defense_api_id", "away_defense_count", "away_goalie", "away_goalie_eh_id", "away_goalie_api_id", "change_on_count", "change_off_count", "change_on", "change_on_eh_id", "change_on_api_id", "change_on_positions", "change_off", "change_off_eh_id", "change_off_api_id", "change_off_positions", "change_on_forwards_count", "change_off_forwards_count", "change_on_forwards", "change_on_forwards_eh_id", "change_on_forwards_api_id", "change_off_forwards", "change_off_forwards_eh_id", "change_off_forwards_api_id", "change_on_defense_count", "change_off_defense_count", "change_on_defense", "change_on_defense_eh_id", "change_on_defense_api_id", "change_off_defense", "change_off_defense_eh_id", "change_off_defense_api_id", "change_on_goalie_count", "change_off_goalie_count", "change_on_goalie", "change_on_goalie_eh_id", "change_on_goalie_api_id", "change_off_goalie", "change_off_goalie_eh_id", "change_off_goalie_api_id", "base_xg", "base_xg_adj", "context_xg", "context_xg_adj", "pred_goal", "pred_goal_adj", "goal", "goal_adj", "hd_goal", "shot", "shot_adj", "hd_shot", "miss", "miss_adj", "hd_miss", "fenwick", "fenwick_adj", "hd_fenwick", "corsi", "corsi_adj", "block", "block_adj", "teammate_block", "teammate_block_adj", "hit", "give", "take", "fac", "penl", "change", "stop", "chl", "ozf", "nzf", "dzf", "ozc", "nzc", "dzc", "otf", "pen0", "pen2", "pen4", "pen5", "pen10"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -393,6 +397,11 @@ class PbpPublic(BaseModel):
         # and model_fields_set contains the field
         if self.shot_type is None and "shot_type" in self.model_fields_set:
             _dict['shot_type'] = None
+
+        # set to None if event_length (nullable) is None
+        # and model_fields_set contains the field
+        if self.event_length is None and "event_length" in self.model_fields_set:
+            _dict['event_length'] = None
 
         # set to None if event_distance (nullable) is None
         # and model_fields_set contains the field
@@ -924,6 +933,36 @@ class PbpPublic(BaseModel):
         if self.change_off_goalie_api_id is None and "change_off_goalie_api_id" in self.model_fields_set:
             _dict['change_off_goalie_api_id'] = None
 
+        # set to None if base_xg (nullable) is None
+        # and model_fields_set contains the field
+        if self.base_xg is None and "base_xg" in self.model_fields_set:
+            _dict['base_xg'] = None
+
+        # set to None if base_xg_adj (nullable) is None
+        # and model_fields_set contains the field
+        if self.base_xg_adj is None and "base_xg_adj" in self.model_fields_set:
+            _dict['base_xg_adj'] = None
+
+        # set to None if context_xg (nullable) is None
+        # and model_fields_set contains the field
+        if self.context_xg is None and "context_xg" in self.model_fields_set:
+            _dict['context_xg'] = None
+
+        # set to None if context_xg_adj (nullable) is None
+        # and model_fields_set contains the field
+        if self.context_xg_adj is None and "context_xg_adj" in self.model_fields_set:
+            _dict['context_xg_adj'] = None
+
+        # set to None if pred_goal (nullable) is None
+        # and model_fields_set contains the field
+        if self.pred_goal is None and "pred_goal" in self.model_fields_set:
+            _dict['pred_goal'] = None
+
+        # set to None if pred_goal_adj (nullable) is None
+        # and model_fields_set contains the field
+        if self.pred_goal_adj is None and "pred_goal_adj" in self.model_fields_set:
+            _dict['pred_goal_adj'] = None
+
         return _dict
 
     @classmethod
@@ -1092,8 +1131,12 @@ class PbpPublic(BaseModel):
             "change_off_goalie": obj.get("change_off_goalie"),
             "change_off_goalie_eh_id": obj.get("change_off_goalie_eh_id"),
             "change_off_goalie_api_id": obj.get("change_off_goalie_api_id"),
-            "pred_goal": obj.get("pred_goal") if obj.get("pred_goal") is not None else 0,
-            "pred_goal_adj": obj.get("pred_goal_adj") if obj.get("pred_goal_adj") is not None else 0,
+            "base_xg": obj.get("base_xg"),
+            "base_xg_adj": obj.get("base_xg_adj"),
+            "context_xg": obj.get("context_xg"),
+            "context_xg_adj": obj.get("context_xg_adj"),
+            "pred_goal": obj.get("pred_goal"),
+            "pred_goal_adj": obj.get("pred_goal_adj"),
             "goal": obj.get("goal") if obj.get("goal") is not None else 0,
             "goal_adj": obj.get("goal_adj") if obj.get("goal_adj") is not None else 0,
             "hd_goal": obj.get("hd_goal") if obj.get("hd_goal") is not None else 0,
