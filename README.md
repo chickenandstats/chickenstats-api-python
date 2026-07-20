@@ -2,8 +2,8 @@
 
 API for downloading NHL data
 
-- API version: 0.1.4
-- Package version: 0.1.4
+- API version: 0.1.5
+- Package version: 0.1.5
 
 ## Requirements
 
@@ -44,20 +44,16 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 with chickenstats_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = chickenstats_api.InferenceApi(api_client)
-    game_id = [56] # List[int] |  (optional)
-    season = [56] # List[int] |  (optional)
-    sessions = ['sessions_example'] # List[str] |  (optional)
-    limit = 10000 # int |  (optional) (default to 10000)
-    offset = 0 # int |  (optional) (default to 0)
+    api_instance = chickenstats_api.BillingApi(api_client)
+    tier = 'tier_example' # str | 
 
     try:
-        # Read Pred Goal
-        api_response = api_instance.read_pred_goal(game_id=game_id, season=season, sessions=sessions, limit=limit, offset=offset)
-        print("The response of InferenceApi->read_pred_goal:\n")
+        # Create Checkout Session
+        api_response = api_instance.create_checkout_session(tier)
+        print("The response of BillingApi->create_checkout_session:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling InferenceApi->read_pred_goal: %s\n" % e)
+        print("Exception when calling BillingApi->create_checkout_session: %s\n" % e)
 
 ```
 
@@ -67,15 +63,21 @@ All URIs are relative to *https://api.chickenstats.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
+*BillingApi* | [**create_checkout_session**](docs/BillingApi.md#create_checkout_session) | **POST** /api/v1/billing/checkout | Create Checkout Session
+*BillingApi* | [**create_portal_session**](docs/BillingApi.md#create_portal_session) | **POST** /api/v1/billing/portal | Create Portal Session
+*ChangesApi* | [**read_changes**](docs/ChangesApi.md#read_changes) | **GET** /api/v1/chicken_nhl/changes | Read Changes
+*ChangesApi* | [**read_changes_game_ids**](docs/ChangesApi.md#read_changes_game_ids) | **GET** /api/v1/chicken_nhl/changes/game_ids | Read Changes Game Ids
+*GamesApi* | [**read_game**](docs/GamesApi.md#read_game) | **GET** /api/v1/chicken_nhl/games/{game_id} | Read Game
+*GamesApi* | [**read_games**](docs/GamesApi.md#read_games) | **GET** /api/v1/chicken_nhl/games | Read Games
 *InferenceApi* | [**read_pred_goal**](docs/InferenceApi.md#read_pred_goal) | **GET** /api/v1/inference/pred_goal | Read Pred Goal
 *LinesApi* | [**read_game_lines**](docs/LinesApi.md#read_game_lines) | **GET** /api/v1/chicken_nhl/lines/game | Read Game Lines
-*LinesApi* | [**read_line_ids**](docs/LinesApi.md#read_line_ids) | **GET** /api/v1/chicken_nhl/lines/line_ids | Read Line Ids
 *LinesApi* | [**read_lines_game_ids**](docs/LinesApi.md#read_lines_game_ids) | **GET** /api/v1/chicken_nhl/lines/game_ids | Read Lines Game Ids
+*LinesApi* | [**read_lines_line_ids**](docs/LinesApi.md#read_lines_line_ids) | **GET** /api/v1/chicken_nhl/lines/line_ids | Read Lines Line Ids
 *LinesApi* | [**read_season_lines**](docs/LinesApi.md#read_season_lines) | **GET** /api/v1/chicken_nhl/lines/season | Read Season Lines
 *LiveApi* | [**read_live_games**](docs/LiveApi.md#read_live_games) | **GET** /api/v1/live/games | Read Live Games
 *LiveApi* | [**read_live_pbp**](docs/LiveApi.md#read_live_pbp) | **GET** /api/v1/live/play_by_play | Read Live Pbp
-*LoginApi* | [**login_auth0_token**](docs/LoginApi.md#login_auth0_token) | **POST** /api/v1/login/auth0-token | Login Auth0 Token
-*LoginApi* | [**login_callback**](docs/LoginApi.md#login_callback) | **POST** /api/v1/login/callback | Login Callback
+*LoginApi* | [**login_firebase_token**](docs/LoginApi.md#login_firebase_token) | **POST** /api/v1/login/firebase-token | Login Firebase Token
+*LoginApi* | [**login_verify_token**](docs/LoginApi.md#login_verify_token) | **POST** /api/v1/login/verify-token | Login Verify Token
 *LoginApi* | [**recover_password**](docs/LoginApi.md#recover_password) | **POST** /api/v1/password-recovery/{email} | Recover Password
 *LoginApi* | [**recover_password_html_content**](docs/LoginApi.md#recover_password_html_content) | **POST** /api/v1/password-recovery-html-content/{email} | Recover Password Html Content
 *LoginApi* | [**reset_password**](docs/LoginApi.md#reset_password) | **POST** /api/v1/reset-password/ | Reset Password
@@ -83,7 +85,14 @@ Class | Method | HTTP request | Description
 *PlayByPlayApi* | [**read_pbp**](docs/PlayByPlayApi.md#read_pbp) | **GET** /api/v1/chicken_nhl/play_by_play | Read Pbp
 *PlayByPlayApi* | [**read_pbp_game_ids**](docs/PlayByPlayApi.md#read_pbp_game_ids) | **GET** /api/v1/chicken_nhl/play_by_play/game_ids | Read Pbp Game Ids
 *PlayByPlayApi* | [**read_pbp_play_ids**](docs/PlayByPlayApi.md#read_pbp_play_ids) | **GET** /api/v1/chicken_nhl/play_by_play/play_ids | Read Pbp Play Ids
+*PlayersApi* | [**read_player**](docs/PlayersApi.md#read_player) | **GET** /api/v1/chicken_nhl/players/{api_id} | Read Player
+*PlayersApi* | [**read_players**](docs/PlayersApi.md#read_players) | **GET** /api/v1/chicken_nhl/players | Read Players
 *RapmApi* | [**read_rapm**](docs/RapmApi.md#read_rapm) | **GET** /api/v1/chicken_nhl/rapm | Read Rapm
+*RostersApi* | [**read_roster_game_ids**](docs/RostersApi.md#read_roster_game_ids) | **GET** /api/v1/chicken_nhl/rosters/game_ids | Read Roster Game Ids
+*RostersApi* | [**read_rosters**](docs/RostersApi.md#read_rosters) | **GET** /api/v1/chicken_nhl/rosters | Read Rosters
+*ShiftsApi* | [**read_shifts**](docs/ShiftsApi.md#read_shifts) | **GET** /api/v1/chicken_nhl/shifts | Read Shifts
+*ShiftsApi* | [**read_shifts_game_ids**](docs/ShiftsApi.md#read_shifts_game_ids) | **GET** /api/v1/chicken_nhl/shifts/game_ids | Read Shifts Game Ids
+*StandingsApi* | [**read_standings**](docs/StandingsApi.md#read_standings) | **GET** /api/v1/chicken_nhl/standings | Read Standings
 *StatsApi* | [**read_game_stats**](docs/StatsApi.md#read_game_stats) | **GET** /api/v1/chicken_nhl/stats/game | Read Game Stats
 *StatsApi* | [**read_season_stats**](docs/StatsApi.md#read_season_stats) | **GET** /api/v1/chicken_nhl/stats/season | Read Season Stats
 *StatsApi* | [**read_stats_game_ids**](docs/StatsApi.md#read_stats_game_ids) | **GET** /api/v1/chicken_nhl/stats/game_ids | Read Stats Game Ids
@@ -91,20 +100,25 @@ Class | Method | HTTP request | Description
 *TeamStatsApi* | [**read_season_team_stats**](docs/TeamStatsApi.md#read_season_team_stats) | **GET** /api/v1/chicken_nhl/team_stats/season | Read Season Team Stats
 *TeamStatsApi* | [**read_team_stats_game_ids**](docs/TeamStatsApi.md#read_team_stats_game_ids) | **GET** /api/v1/chicken_nhl/team_stats/game_ids | Read Team Stats Game Ids
 *TeamStatsApi* | [**read_team_stats_ids**](docs/TeamStatsApi.md#read_team_stats_ids) | **GET** /api/v1/chicken_nhl/team_stats/team_stats_ids | Read Team Stats Ids
+*TeamsApi* | [**read_teams**](docs/TeamsApi.md#read_teams) | **GET** /api/v1/chicken_nhl/teams | Read Teams
 *UsersApi* | [**delete_user_me**](docs/UsersApi.md#delete_user_me) | **DELETE** /api/v1/users/me | Delete User Me
 *UsersApi* | [**get_programmatic_credentials**](docs/UsersApi.md#get_programmatic_credentials) | **GET** /api/v1/users/me/programmatic-credentials | Get Programmatic Credentials
 *UsersApi* | [**read_user_me**](docs/UsersApi.md#read_user_me) | **GET** /api/v1/users/me | Read User Me
 *UsersApi* | [**resend_verification**](docs/UsersApi.md#resend_verification) | **POST** /api/v1/users/me/resend-verification | Resend Verification
 *UsersApi* | [**rotate_programmatic_credentials**](docs/UsersApi.md#rotate_programmatic_credentials) | **POST** /api/v1/users/me/programmatic-credentials/rotate | Rotate Programmatic Credentials
 *UsersApi* | [**signup**](docs/UsersApi.md#signup) | **POST** /api/v1/users/signup | Signup
-*UsersApi* | [**sync_ghost_tier**](docs/UsersApi.md#sync_ghost_tier) | **POST** /api/v1/users/me/sync-ghost | Sync Ghost Tier
 *UsersApi* | [**update_password_me**](docs/UsersApi.md#update_password_me) | **PATCH** /api/v1/users/me/password | Update Password Me
 *UsersApi* | [**update_user_me**](docs/UsersApi.md#update_user_me) | **PATCH** /api/v1/users/me | Update User Me
 
 
 ## Documentation For Models
 
+ - [ChangesPublic](docs/ChangesPublic.md)
+ - [ChangesResponse](docs/ChangesResponse.md)
+ - [GamePublic](docs/GamePublic.md)
+ - [GameResponse](docs/GameResponse.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
+ - [IdToken](docs/IdToken.md)
  - [LinesCreate](docs/LinesCreate.md)
  - [LinesGame](docs/LinesGame.md)
  - [LinesGameResponse](docs/LinesGameResponse.md)
@@ -118,16 +132,26 @@ Class | Method | HTTP request | Description
  - [NewPassword](docs/NewPassword.md)
  - [PbpPublic](docs/PbpPublic.md)
  - [PbpResponse](docs/PbpResponse.md)
+ - [PlayerPublic](docs/PlayerPublic.md)
+ - [PlayerResponse](docs/PlayerResponse.md)
  - [PredGoalResponse](docs/PredGoalResponse.md)
  - [PredGoalRow](docs/PredGoalRow.md)
  - [ProgrammaticCredentials](docs/ProgrammaticCredentials.md)
  - [RapmResponse](docs/RapmResponse.md)
  - [RapmScores](docs/RapmScores.md)
+ - [RosterPublic](docs/RosterPublic.md)
+ - [RosterResponse](docs/RosterResponse.md)
+ - [ShiftsPublic](docs/ShiftsPublic.md)
+ - [ShiftsResponse](docs/ShiftsResponse.md)
+ - [StandingsPublic](docs/StandingsPublic.md)
+ - [StandingsResponse](docs/StandingsResponse.md)
  - [StatsCreate](docs/StatsCreate.md)
  - [StatsGame](docs/StatsGame.md)
  - [StatsGameResponse](docs/StatsGameResponse.md)
  - [StatsSeason](docs/StatsSeason.md)
  - [StatsSeasonResponse](docs/StatsSeasonResponse.md)
+ - [TeamPublic](docs/TeamPublic.md)
+ - [TeamResponse](docs/TeamResponse.md)
  - [TeamStatsCreate](docs/TeamStatsCreate.md)
  - [TeamStatsGame](docs/TeamStatsGame.md)
  - [TeamStatsGameResponse](docs/TeamStatsGameResponse.md)

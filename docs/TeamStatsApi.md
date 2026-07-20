@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **read_game_team_stats**
-> TeamStatsGameResponse read_game_team_stats(season=season, sessions=sessions, game_id=game_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, level=level, limit=limit, offset=offset)
+> TeamStatsGameResponse read_game_team_stats(season=season, sessions=sessions, game_id=game_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, level=level, include=include, limit=limit, offset=offset)
 
 Read Game Team Stats
 
@@ -50,12 +50,13 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     strength_state = ['strength_state_example'] # List[str] |  (optional)
     score_state = True # bool |  (optional)
     level = 'level_example' # str |  (optional)
+    include = ['include_example'] # List[str] |  (optional)
     limit = 10000 # int |  (optional) (default to 10000)
     offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Game Team Stats
-        api_response = api_instance.read_game_team_stats(season=season, sessions=sessions, game_id=game_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, level=level, limit=limit, offset=offset)
+        api_response = api_instance.read_game_team_stats(season=season, sessions=sessions, game_id=game_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, level=level, include=include, limit=limit, offset=offset)
         print("The response of TeamStatsApi->read_game_team_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -77,6 +78,7 @@ Name | Type | Description  | Notes
  **strength_state** | [**List[str]**](str.md)|  | [optional] 
  **score_state** | **bool**|  | [optional] 
  **level** | **str**|  | [optional] 
+ **include** | [**List[str]**](str.md)|  | [optional] 
  **limit** | **int**|  | [optional] [default to 10000]
  **offset** | **int**|  | [optional] [default to 0]
 
@@ -266,7 +268,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_team_stats_ids**
-> List[str] read_team_stats_ids(season=season, sessions=sessions)
+> List[Optional[str]] read_team_stats_ids(season=season, sessions=sessions)
 
 Read Team Stats Ids
 
@@ -320,7 +322,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List[str]**
+**List[Optional[str]]**
 
 ### Authorization
 

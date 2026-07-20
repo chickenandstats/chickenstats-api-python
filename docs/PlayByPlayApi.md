@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **read_pbp**
-> PbpResponse read_pbp(season=season, sessions=sessions, game_id=game_id, event=event, player_1=player_1, goalie=goalie, event_team=event_team, opp_team=opp_team, strength_state=strength_state, limit=limit, offset=offset)
+> PbpResponse read_pbp(season=season, sessions=sessions, game_id=game_id, play_id=play_id, event=event, player_1=player_1, goalie=goalie, event_team=event_team, opp_team=opp_team, strength_state=strength_state, include=include, limit=limit, offset=offset)
 
 Read Pbp
 
@@ -44,18 +44,20 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     season = [56] # List[int] |  (optional)
     sessions = ['sessions_example'] # List[str] |  (optional)
     game_id = [56] # List[int] |  (optional)
-    event = ['event_example'] # List[str] |  (optional)
+    play_id = [56] # List[int] |  (optional)
+    event = ['event_example'] # List[Optional[str]] |  (optional)
     player_1 = ['player_1_example'] # List[str] |  (optional)
     goalie = ['goalie_example'] # List[str] |  (optional)
     event_team = ['event_team_example'] # List[str] |  (optional)
     opp_team = ['opp_team_example'] # List[str] |  (optional)
     strength_state = ['strength_state_example'] # List[str] |  (optional)
+    include = ['include_example'] # List[str] |  (optional)
     limit = 10000 # int |  (optional) (default to 10000)
     offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Pbp
-        api_response = api_instance.read_pbp(season=season, sessions=sessions, game_id=game_id, event=event, player_1=player_1, goalie=goalie, event_team=event_team, opp_team=opp_team, strength_state=strength_state, limit=limit, offset=offset)
+        api_response = api_instance.read_pbp(season=season, sessions=sessions, game_id=game_id, play_id=play_id, event=event, player_1=player_1, goalie=goalie, event_team=event_team, opp_team=opp_team, strength_state=strength_state, include=include, limit=limit, offset=offset)
         print("The response of PlayByPlayApi->read_pbp:\n")
         pprint(api_response)
     except Exception as e:
@@ -72,12 +74,14 @@ Name | Type | Description  | Notes
  **season** | [**List[int]**](int.md)|  | [optional] 
  **sessions** | [**List[str]**](str.md)|  | [optional] 
  **game_id** | [**List[int]**](int.md)|  | [optional] 
- **event** | [**List[str]**](str.md)|  | [optional] 
+ **play_id** | [**List[int]**](int.md)|  | [optional] 
+ **event** | [**List[Optional[str]]**](str.md)|  | [optional] 
  **player_1** | [**List[str]**](str.md)|  | [optional] 
  **goalie** | [**List[str]**](str.md)|  | [optional] 
  **event_team** | [**List[str]**](str.md)|  | [optional] 
  **opp_team** | [**List[str]**](str.md)|  | [optional] 
  **strength_state** | [**List[str]**](str.md)|  | [optional] 
+ **include** | [**List[str]**](str.md)|  | [optional] 
  **limit** | **int**|  | [optional] [default to 10000]
  **offset** | **int**|  | [optional] [default to 0]
 

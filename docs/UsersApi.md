@@ -10,7 +10,6 @@ Method | HTTP request | Description
 [**resend_verification**](UsersApi.md#resend_verification) | **POST** /api/v1/users/me/resend-verification | Resend Verification
 [**rotate_programmatic_credentials**](UsersApi.md#rotate_programmatic_credentials) | **POST** /api/v1/users/me/programmatic-credentials/rotate | Rotate Programmatic Credentials
 [**signup**](UsersApi.md#signup) | **POST** /api/v1/users/signup | Signup
-[**sync_ghost_tier**](UsersApi.md#sync_ghost_tier) | **POST** /api/v1/users/me/sync-ghost | Sync Ghost Tier
 [**update_password_me**](UsersApi.md#update_password_me) | **PATCH** /api/v1/users/me/password | Update Password Me
 [**update_user_me**](UsersApi.md#update_user_me) | **PATCH** /api/v1/users/me | Update User Me
 
@@ -20,7 +19,7 @@ Method | HTTP request | Description
 
 Delete User Me
 
-Delete own user and block Auth0 account.
+Delete own user and disable Firebase account.
 
 ### Example
 
@@ -235,7 +234,7 @@ This endpoint does not need any parameter.
 
 Resend Verification
 
-Trigger Auth0 to resend the verification email.
+Trigger Firebase to resend the verification email.
 
 ### Example
 
@@ -379,7 +378,7 @@ This endpoint does not need any parameter.
 
 Signup
 
-Public self-registration. Creates a local user, an Auth0 user, and a Ghost member.
+Public self-registration. Creates a local user, a Firebase user, and a Ghost member.
 
 If the account exists but is inactive (previously deactivated/pruned), reactivates it
 with the new credentials rather than rejecting the request.
@@ -447,83 +446,12 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **sync_ghost_tier**
-> Message sync_ghost_tier()
-
-Sync Ghost Tier
-
-Refresh tier from Ghost subscription state. No-op for contributor/superuser.
-
-### Example
-
-* OAuth Authentication (OAuth2PasswordBearer):
-
-```python
-import chickenstats_api
-from chickenstats_api.models.message import Message
-from chickenstats_api.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://api.chickenstats.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = chickenstats_api.Configuration(
-    host = "https://api.chickenstats.com"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Enter a context with an instance of the API client
-with chickenstats_api.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = chickenstats_api.UsersApi(api_client)
-
-    try:
-        # Sync Ghost Tier
-        api_response = api_instance.sync_ghost_tier()
-        print("The response of UsersApi->sync_ghost_tier:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling UsersApi->sync_ghost_tier: %s\n" % e)
-```
-
-
-
-### Parameters
-
-This endpoint does not need any parameter.
-
-### Return type
-
-[**Message**](Message.md)
-
-### Authorization
-
-[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **update_password_me**
 > Message update_password_me(update_password)
 
 Update Password Me
 
-Update own password in Auth0. Verifies current password against Auth0 before changing.
+Update own password in Firebase. Verifies current password against Firebase before changing.
 
 ### Example
 

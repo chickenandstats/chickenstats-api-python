@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cf_client_id** | **str** |  | 
 **cf_client_secret** | **str** |  | [optional] 
-**auth0_token_endpoint** | **str** |  | [optional] [default to 'POST /api/v1/login/auth0-token']
+**token_endpoint** | **str** |  | [optional] [default to 'POST /api/v1/login/firebase-token']
 **note** | **str** |  | [optional] [default to 'The secret is shown once. Store it securely — rotate if lost.']
 
 ## Example

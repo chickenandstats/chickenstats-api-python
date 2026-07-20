@@ -78,7 +78,6 @@ Name | Type | Description | Notes
 **season** | **int** |  | 
 **session** | **str** |  | 
 **game_id** | **int** |  | [optional] 
-**game_date** | **str** |  | [optional] 
 **team** | **str** |  | 
 **opp_team** | **str** |  | [optional] 
 **strength_state** | **str** |  | [optional] 

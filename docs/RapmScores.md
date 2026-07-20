@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **season** | **int** |  | 
 **session** | **str** |  | 
 **situation** | **str** |  | 
-**name** | **str** |  | [optional] 
 **team** | **str** |  | [optional] 
 **pos** | **str** |  | [optional] 
 **pos2** | **str** |  | [optional] 

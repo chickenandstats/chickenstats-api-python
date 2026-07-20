@@ -8,12 +8,13 @@ Method | HTTP request | Description
 
 
 # **read_rapm**
-> RapmResponse read_rapm(season=season, sessions=sessions, api_id=api_id, name=name, team=team, situation=situation, limit=limit, offset=offset)
+> RapmResponse read_rapm(season=season, sessions=sessions, situation=situation, player=player, api_id=api_id, eh_id=eh_id, team=team, pos=pos, limit=limit, offset=offset)
 
 Read Rapm
 
 ### Example
 
+* OAuth Authentication (OAuth2PasswordBearer):
 
 ```python
 import chickenstats_api
@@ -27,6 +28,12 @@ configuration = chickenstats_api.Configuration(
     host = "https://api.chickenstats.com"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with chickenstats_api.ApiClient(configuration) as api_client:
@@ -34,16 +41,18 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     api_instance = chickenstats_api.RapmApi(api_client)
     season = [56] # List[int] |  (optional)
     sessions = ['sessions_example'] # List[str] |  (optional)
-    api_id = [56] # List[int] |  (optional)
-    name = ['name_example'] # List[str] |  (optional)
-    team = ['team_example'] # List[str] |  (optional)
     situation = ['situation_example'] # List[str] |  (optional)
+    player = ['player_example'] # List[str] |  (optional)
+    api_id = [56] # List[int] |  (optional)
+    eh_id = ['eh_id_example'] # List[str] |  (optional)
+    team = ['team_example'] # List[str] |  (optional)
+    pos = ['pos_example'] # List[str] |  (optional)
     limit = 10000 # int |  (optional) (default to 10000)
     offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Rapm
-        api_response = api_instance.read_rapm(season=season, sessions=sessions, api_id=api_id, name=name, team=team, situation=situation, limit=limit, offset=offset)
+        api_response = api_instance.read_rapm(season=season, sessions=sessions, situation=situation, player=player, api_id=api_id, eh_id=eh_id, team=team, pos=pos, limit=limit, offset=offset)
         print("The response of RapmApi->read_rapm:\n")
         pprint(api_response)
     except Exception as e:
@@ -59,10 +68,12 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **season** | [**List[int]**](int.md)|  | [optional] 
  **sessions** | [**List[str]**](str.md)|  | [optional] 
- **api_id** | [**List[int]**](int.md)|  | [optional] 
- **name** | [**List[str]**](str.md)|  | [optional] 
- **team** | [**List[str]**](str.md)|  | [optional] 
  **situation** | [**List[str]**](str.md)|  | [optional] 
+ **player** | [**List[str]**](str.md)|  | [optional] 
+ **api_id** | [**List[int]**](int.md)|  | [optional] 
+ **eh_id** | [**List[str]**](str.md)|  | [optional] 
+ **team** | [**List[str]**](str.md)|  | [optional] 
+ **pos** | [**List[str]**](str.md)|  | [optional] 
  **limit** | **int**|  | [optional] [default to 10000]
  **offset** | **int**|  | [optional] [default to 0]
 
@@ -72,7 +83,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

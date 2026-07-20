@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **email** | **str** |  | 
 **is_active** | **bool** |  | [optional] [default to True]
 **is_superuser** | **bool** |  | [optional] [default to False]
+**is_contributor** | **bool** |  | [optional] [default to False]
 **full_name** | **str** |  | [optional] 
 **tier** | **str** |  | [optional] [default to 'free']
 **password** | **str** |  | 

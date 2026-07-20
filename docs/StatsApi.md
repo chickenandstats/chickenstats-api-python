@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **read_game_stats**
-> StatsGameResponse read_game_stats(season=season, sessions=sessions, game_id=game_id, level=level, player=player, api_id=api_id, eh_id=eh_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, teammates=teammates, opposition=opposition, limit=limit, offset=offset)
+> StatsGameResponse read_game_stats(season=season, sessions=sessions, game_id=game_id, level=level, player=player, api_id=api_id, eh_id=eh_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, teammates=teammates, opposition=opposition, include=include, limit=limit, offset=offset)
 
 Read Game Stats
 
@@ -54,12 +54,13 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     score_state = True # bool |  (optional)
     teammates = True # bool |  (optional)
     opposition = True # bool |  (optional)
+    include = ['include_example'] # List[str] |  (optional)
     limit = 10000 # int |  (optional) (default to 10000)
     offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Game Stats
-        api_response = api_instance.read_game_stats(season=season, sessions=sessions, game_id=game_id, level=level, player=player, api_id=api_id, eh_id=eh_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, teammates=teammates, opposition=opposition, limit=limit, offset=offset)
+        api_response = api_instance.read_game_stats(season=season, sessions=sessions, game_id=game_id, level=level, player=player, api_id=api_id, eh_id=eh_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, teammates=teammates, opposition=opposition, include=include, limit=limit, offset=offset)
         print("The response of StatsApi->read_game_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -86,6 +87,7 @@ Name | Type | Description  | Notes
  **score_state** | **bool**|  | [optional] 
  **teammates** | **bool**|  | [optional] 
  **opposition** | **bool**|  | [optional] 
+ **include** | [**List[str]**](str.md)|  | [optional] 
  **limit** | **int**|  | [optional] [default to 10000]
  **offset** | **int**|  | [optional] [default to 0]
 
@@ -112,7 +114,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_season_stats**
-> StatsSeasonResponse read_season_stats(season=season, sessions=sessions, player=player, api_id=api_id, eh_id=eh_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, teammates=teammates, opposition=opposition, limit=limit, offset=offset)
+> StatsSeasonResponse read_season_stats(season=season, sessions=sessions, player=player, api_id=api_id, eh_id=eh_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, teammates=teammates, opposition=opposition, include=include, limit=limit, offset=offset)
 
 Read Season Stats
 
@@ -154,12 +156,13 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     score_state = True # bool |  (optional)
     teammates = True # bool |  (optional)
     opposition = True # bool |  (optional)
+    include = ['include_example'] # List[str] |  (optional)
     limit = 10000 # int |  (optional) (default to 10000)
     offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Season Stats
-        api_response = api_instance.read_season_stats(season=season, sessions=sessions, player=player, api_id=api_id, eh_id=eh_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, teammates=teammates, opposition=opposition, limit=limit, offset=offset)
+        api_response = api_instance.read_season_stats(season=season, sessions=sessions, player=player, api_id=api_id, eh_id=eh_id, team=team, opp_team=opp_team, strength_state=strength_state, score_state=score_state, teammates=teammates, opposition=opposition, include=include, limit=limit, offset=offset)
         print("The response of StatsApi->read_season_stats:\n")
         pprint(api_response)
     except Exception as e:
@@ -184,6 +187,7 @@ Name | Type | Description  | Notes
  **score_state** | **bool**|  | [optional] 
  **teammates** | **bool**|  | [optional] 
  **opposition** | **bool**|  | [optional] 
+ **include** | [**List[str]**](str.md)|  | [optional] 
  **limit** | **int**|  | [optional] [default to 10000]
  **offset** | **int**|  | [optional] [default to 0]
 

@@ -4,20 +4,20 @@ All URIs are relative to *https://api.chickenstats.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**login_auth0_token**](LoginApi.md#login_auth0_token) | **POST** /api/v1/login/auth0-token | Login Auth0 Token
-[**login_callback**](LoginApi.md#login_callback) | **POST** /api/v1/login/callback | Login Callback
+[**login_firebase_token**](LoginApi.md#login_firebase_token) | **POST** /api/v1/login/firebase-token | Login Firebase Token
+[**login_verify_token**](LoginApi.md#login_verify_token) | **POST** /api/v1/login/verify-token | Login Verify Token
 [**recover_password**](LoginApi.md#recover_password) | **POST** /api/v1/password-recovery/{email} | Recover Password
 [**recover_password_html_content**](LoginApi.md#recover_password_html_content) | **POST** /api/v1/password-recovery-html-content/{email} | Recover Password Html Content
 [**reset_password**](LoginApi.md#reset_password) | **POST** /api/v1/reset-password/ | Reset Password
 [**test_token**](LoginApi.md#test_token) | **POST** /api/v1/login/test-token | Test Token
 
 
-# **login_auth0_token**
-> Token login_auth0_token(username, password, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret)
+# **login_firebase_token**
+> Token login_firebase_token(username, password, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret)
 
-Login Auth0 Token
+Login Firebase Token
 
-Exchange email + password for an Auth0 access token (for use with API data endpoints).
+Exchange email + password for a Firebase ID token (for use with API data endpoints).
 
 ### Example
 
@@ -47,12 +47,12 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     client_secret = 'client_secret_example' # str |  (optional)
 
     try:
-        # Login Auth0 Token
-        api_response = api_instance.login_auth0_token(username, password, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret)
-        print("The response of LoginApi->login_auth0_token:\n")
+        # Login Firebase Token
+        api_response = api_instance.login_firebase_token(username, password, grant_type=grant_type, scope=scope, client_id=client_id, client_secret=client_secret)
+        print("The response of LoginApi->login_firebase_token:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling LoginApi->login_auth0_token: %s\n" % e)
+        print("Exception when calling LoginApi->login_firebase_token: %s\n" % e)
 ```
 
 
@@ -91,18 +91,22 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **login_callback**
-> Token login_callback(code)
+# **login_verify_token**
+> Token login_verify_token(id_token)
 
-Login Callback
+Login Verify Token
 
-Exchange an Auth0 authorization code (Universal Login) for a local HS256 session token.
+Exchange a Firebase ID token for a local session token.
+
+Takes a client-obtained Firebase ID token (e.g. from "Sign in with Google") and
+returns a local HS256 session token for the FastHTML frontend's session cookie.
 
 ### Example
 
 
 ```python
 import chickenstats_api
+from chickenstats_api.models.id_token import IdToken
 from chickenstats_api.models.token import Token
 from chickenstats_api.rest import ApiException
 from pprint import pprint
@@ -118,15 +122,15 @@ configuration = chickenstats_api.Configuration(
 with chickenstats_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chickenstats_api.LoginApi(api_client)
-    code = 'code_example' # str | 
+    id_token = chickenstats_api.IdToken() # IdToken | 
 
     try:
-        # Login Callback
-        api_response = api_instance.login_callback(code)
-        print("The response of LoginApi->login_callback:\n")
+        # Login Verify Token
+        api_response = api_instance.login_verify_token(id_token)
+        print("The response of LoginApi->login_verify_token:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling LoginApi->login_callback: %s\n" % e)
+        print("Exception when calling LoginApi->login_verify_token: %s\n" % e)
 ```
 
 
@@ -136,7 +140,7 @@ with chickenstats_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **str**|  | 
+ **id_token** | [**IdToken**](IdToken.md)|  | 
 
 ### Return type
 
@@ -148,7 +152,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
