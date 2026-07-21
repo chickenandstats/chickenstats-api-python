@@ -45,6 +45,8 @@ class RostersApi:
         self,
         api_id: Optional[List[StrictInt]] = None,
         team: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> List[int]:
         """Read Roster Game Ids
@@ -54,12 +56,18 @@ class RostersApi:
         :type api_id: List[int]
         :param team:
         :type team: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_roster_game_ids_serialize(
             api_id=api_id,
             team=team,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -87,6 +95,8 @@ class RostersApi:
         self,
         api_id: Optional[List[StrictInt]] = None,
         team: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> ApiResponse[List[int]]:
         """Read Roster Game Ids
@@ -96,12 +106,18 @@ class RostersApi:
         :type api_id: List[int]
         :param team:
         :type team: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_roster_game_ids_serialize(
             api_id=api_id,
             team=team,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -129,6 +145,8 @@ class RostersApi:
         self,
         api_id: Optional[List[StrictInt]] = None,
         team: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> RESTResponseType:
         """Read Roster Game Ids
@@ -138,12 +156,18 @@ class RostersApi:
         :type api_id: List[int]
         :param team:
         :type team: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_roster_game_ids_serialize(
             api_id=api_id,
             team=team,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -166,6 +190,8 @@ class RostersApi:
         self,
         api_id,
         team,
+        limit,
+        offset,
         _request_auth,
         _content_type,
         _headers,
@@ -197,6 +223,14 @@ class RostersApi:
         if team is not None:
             
             _query_params.append(('team', team))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if offset is not None:
+            
+            _query_params.append(('offset', offset))
             
         # process the header parameters
         # process the form parameters

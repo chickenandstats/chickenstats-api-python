@@ -436,6 +436,8 @@ class PlayByPlayApi:
         self,
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> List[int]:
         """Read Pbp Game Ids
@@ -445,12 +447,18 @@ class PlayByPlayApi:
         :type season: List[int]
         :param sessions:
         :type sessions: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_pbp_game_ids_serialize(
             season=season,
             sessions=sessions,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -478,6 +486,8 @@ class PlayByPlayApi:
         self,
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> ApiResponse[List[int]]:
         """Read Pbp Game Ids
@@ -487,12 +497,18 @@ class PlayByPlayApi:
         :type season: List[int]
         :param sessions:
         :type sessions: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_pbp_game_ids_serialize(
             season=season,
             sessions=sessions,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -520,6 +536,8 @@ class PlayByPlayApi:
         self,
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> RESTResponseType:
         """Read Pbp Game Ids
@@ -529,12 +547,18 @@ class PlayByPlayApi:
         :type season: List[int]
         :param sessions:
         :type sessions: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_pbp_game_ids_serialize(
             season=season,
             sessions=sessions,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -557,6 +581,8 @@ class PlayByPlayApi:
         self,
         season,
         sessions,
+        limit,
+        offset,
         _request_auth,
         _content_type,
         _headers,
@@ -588,6 +614,14 @@ class PlayByPlayApi:
         if sessions is not None:
             
             _query_params.append(('sessions', sessions))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if offset is not None:
+            
+            _query_params.append(('offset', offset))
             
         # process the header parameters
         # process the form parameters
@@ -632,6 +666,8 @@ class PlayByPlayApi:
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
         game_id: Optional[List[StrictInt]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> List[int]:
         """Read Pbp Play Ids
@@ -643,6 +679,10 @@ class PlayByPlayApi:
         :type sessions: List[str]
         :param game_id:
         :type game_id: List[int]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
@@ -650,6 +690,8 @@ class PlayByPlayApi:
             season=season,
             sessions=sessions,
             game_id=game_id,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -678,6 +720,8 @@ class PlayByPlayApi:
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
         game_id: Optional[List[StrictInt]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> ApiResponse[List[int]]:
         """Read Pbp Play Ids
@@ -689,6 +733,10 @@ class PlayByPlayApi:
         :type sessions: List[str]
         :param game_id:
         :type game_id: List[int]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
@@ -696,6 +744,8 @@ class PlayByPlayApi:
             season=season,
             sessions=sessions,
             game_id=game_id,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -724,6 +774,8 @@ class PlayByPlayApi:
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
         game_id: Optional[List[StrictInt]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> RESTResponseType:
         """Read Pbp Play Ids
@@ -735,6 +787,10 @@ class PlayByPlayApi:
         :type sessions: List[str]
         :param game_id:
         :type game_id: List[int]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
@@ -742,6 +798,8 @@ class PlayByPlayApi:
             season=season,
             sessions=sessions,
             game_id=game_id,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -765,6 +823,8 @@ class PlayByPlayApi:
         season,
         sessions,
         game_id,
+        limit,
+        offset,
         _request_auth,
         _content_type,
         _headers,
@@ -801,6 +861,14 @@ class PlayByPlayApi:
         if game_id is not None:
             
             _query_params.append(('game_id', game_id))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if offset is not None:
+            
+            _query_params.append(('offset', offset))
             
         # process the header parameters
         # process the form parameters

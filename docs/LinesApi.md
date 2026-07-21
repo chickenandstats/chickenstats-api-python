@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_lines_game_ids**
-> List[int] read_lines_game_ids(season=season, sessions=sessions)
+> List[int] read_lines_game_ids(season=season, sessions=sessions, limit=limit, offset=offset)
 
 Read Lines Game Ids
 
@@ -141,10 +141,12 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     api_instance = chickenstats_api.LinesApi(api_client)
     season = [56] # List[int] |  (optional)
     sessions = ['sessions_example'] # List[str] |  (optional)
+    limit = 10000 # int |  (optional) (default to 10000)
+    offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Lines Game Ids
-        api_response = api_instance.read_lines_game_ids(season=season, sessions=sessions)
+        api_response = api_instance.read_lines_game_ids(season=season, sessions=sessions, limit=limit, offset=offset)
         print("The response of LinesApi->read_lines_game_ids:\n")
         pprint(api_response)
     except Exception as e:
@@ -160,6 +162,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **season** | [**List[int]**](int.md)|  | [optional] 
  **sessions** | [**List[str]**](str.md)|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 10000]
+ **offset** | **int**|  | [optional] [default to 0]
 
 ### Return type
 
@@ -184,7 +188,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_lines_line_ids**
-> List[Optional[str]] read_lines_line_ids(season=season, sessions=sessions)
+> List[Optional[str]] read_lines_line_ids(season=season, sessions=sessions, limit=limit, offset=offset)
 
 Read Lines Line Ids
 
@@ -216,10 +220,12 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     api_instance = chickenstats_api.LinesApi(api_client)
     season = [56] # List[int] |  (optional)
     sessions = ['sessions_example'] # List[str] |  (optional)
+    limit = 10000 # int |  (optional) (default to 10000)
+    offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Lines Line Ids
-        api_response = api_instance.read_lines_line_ids(season=season, sessions=sessions)
+        api_response = api_instance.read_lines_line_ids(season=season, sessions=sessions, limit=limit, offset=offset)
         print("The response of LinesApi->read_lines_line_ids:\n")
         pprint(api_response)
     except Exception as e:
@@ -235,6 +241,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **season** | [**List[int]**](int.md)|  | [optional] 
  **sessions** | [**List[str]**](str.md)|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 10000]
+ **offset** | **int**|  | [optional] [default to 0]
 
 ### Return type
 

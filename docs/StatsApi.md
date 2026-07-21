@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_stats_game_ids**
-> List[int] read_stats_game_ids(season=season, sessions=sessions)
+> List[int] read_stats_game_ids(season=season, sessions=sessions, limit=limit, offset=offset)
 
 Read Stats Game Ids
 
@@ -246,10 +246,12 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     api_instance = chickenstats_api.StatsApi(api_client)
     season = [56] # List[int] |  (optional)
     sessions = ['sessions_example'] # List[str] |  (optional)
+    limit = 10000 # int |  (optional) (default to 10000)
+    offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Stats Game Ids
-        api_response = api_instance.read_stats_game_ids(season=season, sessions=sessions)
+        api_response = api_instance.read_stats_game_ids(season=season, sessions=sessions, limit=limit, offset=offset)
         print("The response of StatsApi->read_stats_game_ids:\n")
         pprint(api_response)
     except Exception as e:
@@ -265,6 +267,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **season** | [**List[int]**](int.md)|  | [optional] 
  **sessions** | [**List[str]**](str.md)|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 10000]
+ **offset** | **int**|  | [optional] [default to 0]
 
 ### Return type
 

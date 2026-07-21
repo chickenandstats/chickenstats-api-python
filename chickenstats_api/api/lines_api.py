@@ -433,6 +433,8 @@ class LinesApi:
         self,
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> List[int]:
         """Read Lines Game Ids
@@ -442,12 +444,18 @@ class LinesApi:
         :type season: List[int]
         :param sessions:
         :type sessions: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_lines_game_ids_serialize(
             season=season,
             sessions=sessions,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -475,6 +483,8 @@ class LinesApi:
         self,
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> ApiResponse[List[int]]:
         """Read Lines Game Ids
@@ -484,12 +494,18 @@ class LinesApi:
         :type season: List[int]
         :param sessions:
         :type sessions: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_lines_game_ids_serialize(
             season=season,
             sessions=sessions,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -517,6 +533,8 @@ class LinesApi:
         self,
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> RESTResponseType:
         """Read Lines Game Ids
@@ -526,12 +544,18 @@ class LinesApi:
         :type season: List[int]
         :param sessions:
         :type sessions: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_lines_game_ids_serialize(
             season=season,
             sessions=sessions,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -554,6 +578,8 @@ class LinesApi:
         self,
         season,
         sessions,
+        limit,
+        offset,
         _request_auth,
         _content_type,
         _headers,
@@ -585,6 +611,14 @@ class LinesApi:
         if sessions is not None:
             
             _query_params.append(('sessions', sessions))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if offset is not None:
+            
+            _query_params.append(('offset', offset))
             
         # process the header parameters
         # process the form parameters
@@ -628,6 +662,8 @@ class LinesApi:
         self,
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> List[Optional[str]]:
         """Read Lines Line Ids
@@ -637,12 +673,18 @@ class LinesApi:
         :type season: List[int]
         :param sessions:
         :type sessions: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_lines_line_ids_serialize(
             season=season,
             sessions=sessions,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -670,6 +712,8 @@ class LinesApi:
         self,
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> ApiResponse[List[Optional[str]]]:
         """Read Lines Line Ids
@@ -679,12 +723,18 @@ class LinesApi:
         :type season: List[int]
         :param sessions:
         :type sessions: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_lines_line_ids_serialize(
             season=season,
             sessions=sessions,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -712,6 +762,8 @@ class LinesApi:
         self,
         season: Optional[List[StrictInt]] = None,
         sessions: Optional[List[StrictStr]] = None,
+        limit: Optional[Annotated[int, Field(le=50000, strict=True, ge=1)]] = None,
+        offset: Optional[Annotated[int, Field(strict=True, ge=0)]] = None,
         _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
     ) -> RESTResponseType:
         """Read Lines Line Ids
@@ -721,12 +773,18 @@ class LinesApi:
         :type season: List[int]
         :param sessions:
         :type sessions: List[str]
+        :param limit:
+        :type limit: int
+        :param offset:
+        :type offset: int
         :return: Returns the result object.
         """ # noqa: E501
 
         _param = self._read_lines_line_ids_serialize(
             season=season,
             sessions=sessions,
+            limit=limit,
+            offset=offset,
             _request_auth=None,
             _content_type=None,
             _headers=None,
@@ -749,6 +807,8 @@ class LinesApi:
         self,
         season,
         sessions,
+        limit,
+        offset,
         _request_auth,
         _content_type,
         _headers,
@@ -780,6 +840,14 @@ class LinesApi:
         if sessions is not None:
             
             _query_params.append(('sessions', sessions))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
+        if offset is not None:
+            
+            _query_params.append(('offset', offset))
             
         # process the header parameters
         # process the form parameters

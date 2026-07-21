@@ -108,7 +108,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_pbp_game_ids**
-> List[int] read_pbp_game_ids(season=season, sessions=sessions)
+> List[int] read_pbp_game_ids(season=season, sessions=sessions, limit=limit, offset=offset)
 
 Read Pbp Game Ids
 
@@ -140,10 +140,12 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     api_instance = chickenstats_api.PlayByPlayApi(api_client)
     season = [56] # List[int] |  (optional)
     sessions = ['sessions_example'] # List[str] |  (optional)
+    limit = 10000 # int |  (optional) (default to 10000)
+    offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Pbp Game Ids
-        api_response = api_instance.read_pbp_game_ids(season=season, sessions=sessions)
+        api_response = api_instance.read_pbp_game_ids(season=season, sessions=sessions, limit=limit, offset=offset)
         print("The response of PlayByPlayApi->read_pbp_game_ids:\n")
         pprint(api_response)
     except Exception as e:
@@ -159,6 +161,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **season** | [**List[int]**](int.md)|  | [optional] 
  **sessions** | [**List[str]**](str.md)|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 10000]
+ **offset** | **int**|  | [optional] [default to 0]
 
 ### Return type
 
@@ -183,7 +187,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_pbp_play_ids**
-> List[int] read_pbp_play_ids(season=season, sessions=sessions, game_id=game_id)
+> List[int] read_pbp_play_ids(season=season, sessions=sessions, game_id=game_id, limit=limit, offset=offset)
 
 Read Pbp Play Ids
 
@@ -216,10 +220,12 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     season = [56] # List[int] |  (optional)
     sessions = ['sessions_example'] # List[str] |  (optional)
     game_id = [56] # List[int] |  (optional)
+    limit = 10000 # int |  (optional) (default to 10000)
+    offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Pbp Play Ids
-        api_response = api_instance.read_pbp_play_ids(season=season, sessions=sessions, game_id=game_id)
+        api_response = api_instance.read_pbp_play_ids(season=season, sessions=sessions, game_id=game_id, limit=limit, offset=offset)
         print("The response of PlayByPlayApi->read_pbp_play_ids:\n")
         pprint(api_response)
     except Exception as e:
@@ -236,6 +242,8 @@ Name | Type | Description  | Notes
  **season** | [**List[int]**](int.md)|  | [optional] 
  **sessions** | [**List[str]**](str.md)|  | [optional] 
  **game_id** | [**List[int]**](int.md)|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 10000]
+ **offset** | **int**|  | [optional] [default to 0]
 
 ### Return type
 

@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **read_roster_game_ids**
-> List[int] read_roster_game_ids(api_id=api_id, team=team)
+> List[int] read_roster_game_ids(api_id=api_id, team=team, limit=limit, offset=offset)
 
 Read Roster Game Ids
 
@@ -41,10 +41,12 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     api_instance = chickenstats_api.RostersApi(api_client)
     api_id = [56] # List[int] |  (optional)
     team = ['team_example'] # List[str] |  (optional)
+    limit = 10000 # int |  (optional) (default to 10000)
+    offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Roster Game Ids
-        api_response = api_instance.read_roster_game_ids(api_id=api_id, team=team)
+        api_response = api_instance.read_roster_game_ids(api_id=api_id, team=team, limit=limit, offset=offset)
         print("The response of RostersApi->read_roster_game_ids:\n")
         pprint(api_response)
     except Exception as e:
@@ -60,6 +62,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **api_id** | [**List[int]**](int.md)|  | [optional] 
  **team** | [**List[str]**](str.md)|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 10000]
+ **offset** | **int**|  | [optional] [default to 0]
 
 ### Return type
 
