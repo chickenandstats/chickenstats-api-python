@@ -47,7 +47,7 @@ class PlayByPlayApi:
         sessions: Optional[List[StrictStr]] = None,
         game_id: Optional[List[StrictInt]] = None,
         play_id: Optional[List[StrictInt]] = None,
-        event: Optional[List[Optional[StrictStr]]] = None,
+        event: Optional[List[StrictStr]] = None,
         player_1: Optional[List[StrictStr]] = None,
         goalie: Optional[List[StrictStr]] = None,
         event_team: Optional[List[StrictStr]] = None,
@@ -70,7 +70,7 @@ class PlayByPlayApi:
         :param play_id:
         :type play_id: List[int]
         :param event:
-        :type event: List[Optional[str]]
+        :type event: List[str]
         :param player_1:
         :type player_1: List[str]
         :param goalie:
@@ -133,7 +133,7 @@ class PlayByPlayApi:
         sessions: Optional[List[StrictStr]] = None,
         game_id: Optional[List[StrictInt]] = None,
         play_id: Optional[List[StrictInt]] = None,
-        event: Optional[List[Optional[StrictStr]]] = None,
+        event: Optional[List[StrictStr]] = None,
         player_1: Optional[List[StrictStr]] = None,
         goalie: Optional[List[StrictStr]] = None,
         event_team: Optional[List[StrictStr]] = None,
@@ -156,7 +156,7 @@ class PlayByPlayApi:
         :param play_id:
         :type play_id: List[int]
         :param event:
-        :type event: List[Optional[str]]
+        :type event: List[str]
         :param player_1:
         :type player_1: List[str]
         :param goalie:
@@ -219,7 +219,7 @@ class PlayByPlayApi:
         sessions: Optional[List[StrictStr]] = None,
         game_id: Optional[List[StrictInt]] = None,
         play_id: Optional[List[StrictInt]] = None,
-        event: Optional[List[Optional[StrictStr]]] = None,
+        event: Optional[List[StrictStr]] = None,
         player_1: Optional[List[StrictStr]] = None,
         goalie: Optional[List[StrictStr]] = None,
         event_team: Optional[List[StrictStr]] = None,
@@ -242,7 +242,7 @@ class PlayByPlayApi:
         :param play_id:
         :type play_id: List[int]
         :param event:
-        :type event: List[Optional[str]]
+        :type event: List[str]
         :param player_1:
         :type player_1: List[str]
         :param goalie:

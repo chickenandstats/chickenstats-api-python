@@ -44,16 +44,23 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 with chickenstats_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = chickenstats_api.BillingApi(api_client)
-    tier = 'tier_example' # str | 
+    api_instance = chickenstats_api.ChangesApi(api_client)
+    season = [56] # List[int] |  (optional)
+    sessions = ['sessions_example'] # List[str] |  (optional)
+    game_id = [56] # List[int] |  (optional)
+    event_team = ['event_team_example'] # List[str] |  (optional)
+    period = [56] # List[int] |  (optional)
+    include = ['include_example'] # List[str] |  (optional)
+    limit = 10000 # int |  (optional) (default to 10000)
+    offset = 0 # int |  (optional) (default to 0)
 
     try:
-        # Create Checkout Session
-        api_response = api_instance.create_checkout_session(tier)
-        print("The response of BillingApi->create_checkout_session:\n")
+        # Read Changes
+        api_response = api_instance.read_changes(season=season, sessions=sessions, game_id=game_id, event_team=event_team, period=period, include=include, limit=limit, offset=offset)
+        print("The response of ChangesApi->read_changes:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling BillingApi->create_checkout_session: %s\n" % e)
+        print("Exception when calling ChangesApi->read_changes: %s\n" % e)
 
 ```
 
@@ -63,8 +70,6 @@ All URIs are relative to *https://api.chickenstats.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*BillingApi* | [**create_checkout_session**](docs/BillingApi.md#create_checkout_session) | **POST** /api/v1/billing/checkout | Create Checkout Session
-*BillingApi* | [**create_portal_session**](docs/BillingApi.md#create_portal_session) | **POST** /api/v1/billing/portal | Create Portal Session
 *ChangesApi* | [**read_changes**](docs/ChangesApi.md#read_changes) | **GET** /api/v1/chicken_nhl/changes | Read Changes
 *ChangesApi* | [**read_changes_game_ids**](docs/ChangesApi.md#read_changes_game_ids) | **GET** /api/v1/chicken_nhl/changes/game_ids | Read Changes Game Ids
 *GamesApi* | [**read_game**](docs/GamesApi.md#read_game) | **GET** /api/v1/chicken_nhl/games/{game_id} | Read Game

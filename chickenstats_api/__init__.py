@@ -19,7 +19,6 @@ __version__ = "0.1.5"
 
 # Define package exports
 __all__ = [
-    "BillingApi",
     "ChangesApi",
     "GamesApi",
     "InferenceApi",
@@ -103,7 +102,6 @@ __all__ = [
 ]
 
 # import apis into sdk package
-from chickenstats_api.api.billing_api import BillingApi as BillingApi
 from chickenstats_api.api.changes_api import ChangesApi as ChangesApi
 from chickenstats_api.api.games_api import GamesApi as GamesApi
 from chickenstats_api.api.inference_api import InferenceApi as InferenceApi

@@ -1,7 +1,6 @@
 # flake8: noqa
 
 # import apis into api package
-from chickenstats_api.api.billing_api import BillingApi
 from chickenstats_api.api.changes_api import ChangesApi
 from chickenstats_api.api.games_api import GamesApi
 from chickenstats_api.api.inference_api import InferenceApi

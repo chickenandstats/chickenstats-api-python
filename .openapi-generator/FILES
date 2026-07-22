@@ -6,7 +6,6 @@
 README.md
 chickenstats_api/__init__.py
 chickenstats_api/api/__init__.py
-chickenstats_api/api/billing_api.py
 chickenstats_api/api/changes_api.py
 chickenstats_api/api/games_api.py
 chickenstats_api/api/inference_api.py
@@ -85,7 +84,6 @@ chickenstats_api/models/validation_error.py
 chickenstats_api/models/validation_error_loc_inner.py
 chickenstats_api/py.typed
 chickenstats_api/rest.py
-docs/BillingApi.md
 docs/ChangesApi.md
 docs/ChangesPublic.md
 docs/ChangesResponse.md
@@ -164,7 +162,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
-test/test_billing_api.py
 test/test_changes_api.py
 test/test_changes_public.py
 test/test_changes_response.py

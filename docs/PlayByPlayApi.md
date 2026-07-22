@@ -45,7 +45,7 @@ with chickenstats_api.ApiClient(configuration) as api_client:
     sessions = ['sessions_example'] # List[str] |  (optional)
     game_id = [56] # List[int] |  (optional)
     play_id = [56] # List[int] |  (optional)
-    event = ['event_example'] # List[Optional[str]] |  (optional)
+    event = ['event_example'] # List[str] |  (optional)
     player_1 = ['player_1_example'] # List[str] |  (optional)
     goalie = ['goalie_example'] # List[str] |  (optional)
     event_team = ['event_team_example'] # List[str] |  (optional)
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
  **sessions** | [**List[str]**](str.md)|  | [optional] 
  **game_id** | [**List[int]**](int.md)|  | [optional] 
  **play_id** | [**List[int]**](int.md)|  | [optional] 
- **event** | [**List[Optional[str]]**](str.md)|  | [optional] 
+ **event** | [**List[str]**](str.md)|  | [optional] 
  **player_1** | [**List[str]**](str.md)|  | [optional] 
  **goalie** | [**List[str]**](str.md)|  | [optional] 
  **event_team** | [**List[str]**](str.md)|  | [optional] 
