@@ -70,6 +70,7 @@ __all__ = [
     "ProgrammaticCredentials",
     "RapmResponse",
     "RapmScores",
+    "RefreshTokenRequest",
     "RosterPublic",
     "RosterResponse",
     "ShiftsPublic",
@@ -157,6 +158,7 @@ from chickenstats_api.models.pred_goal_row import PredGoalRow as PredGoalRow
 from chickenstats_api.models.programmatic_credentials import ProgrammaticCredentials as ProgrammaticCredentials
 from chickenstats_api.models.rapm_response import RapmResponse as RapmResponse
 from chickenstats_api.models.rapm_scores import RapmScores as RapmScores
+from chickenstats_api.models.refresh_token_request import RefreshTokenRequest as RefreshTokenRequest
 from chickenstats_api.models.roster_public import RosterPublic as RosterPublic
 from chickenstats_api.models.roster_response import RosterResponse as RosterResponse
 from chickenstats_api.models.shifts_public import ShiftsPublic as ShiftsPublic

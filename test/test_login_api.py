@@ -34,6 +34,13 @@ class TestLoginApi(unittest.TestCase):
         """
         pass
 
+    def test_login_refresh(self) -> None:
+        """Test case for login_refresh
+
+        Login Refresh
+        """
+        pass
+
     def test_login_verify_token(self) -> None:
         """Test case for login_verify_token
 

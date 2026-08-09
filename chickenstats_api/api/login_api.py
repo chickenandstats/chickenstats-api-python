@@ -23,6 +23,7 @@ from typing_extensions import Annotated
 from chickenstats_api.models.id_token import IdToken
 from chickenstats_api.models.message import Message
 from chickenstats_api.models.new_password import NewPassword
+from chickenstats_api.models.refresh_token_request import RefreshTokenRequest
 from chickenstats_api.models.token import Token
 from chickenstats_api.models.user_public import UserPublic
 
@@ -293,6 +294,195 @@ class LoginApi:
         return self.api_client.param_serialize(
             method='POST',
             resource_path='/api/v1/login/firebase-token',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def login_refresh(
+        self,
+        refresh_token_request: RefreshTokenRequest,
+        _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
+    ) -> Token:
+        """Login Refresh
+
+        Exchange a refresh token for a new access token, rotating the refresh token.  No Firebase round-trip -- this is the whole point (a long-running script/CLI can stay authenticated without re-prompting for credentials). Tier comes from a live Firebase custom-claims lookup (_firebase_stripe_role), same source get_current_user_tier's own CF-service-token path already uses, since there's no fresh ID token here to read a stripeRole claim off of directly. Rotation: the presented refresh token is revoked and a new one issued on every successful call, same principle as any refresh-token system -- limits a leaked token to a single use before it stops working silently.
+
+        :param refresh_token_request: (required)
+        :type refresh_token_request: RefreshTokenRequest
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._login_refresh_serialize(
+            refresh_token_request=refresh_token_request,
+            _request_auth=None,
+            _content_type=None,
+            _headers=None,
+            _host_index=0
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "Token",
+            '422': "HTTPValidationError",
+        }
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def login_refresh_with_http_info(
+        self,
+        refresh_token_request: RefreshTokenRequest,
+        _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
+    ) -> ApiResponse[Token]:
+        """Login Refresh
+
+        Exchange a refresh token for a new access token, rotating the refresh token.  No Firebase round-trip -- this is the whole point (a long-running script/CLI can stay authenticated without re-prompting for credentials). Tier comes from a live Firebase custom-claims lookup (_firebase_stripe_role), same source get_current_user_tier's own CF-service-token path already uses, since there's no fresh ID token here to read a stripeRole claim off of directly. Rotation: the presented refresh token is revoked and a new one issued on every successful call, same principle as any refresh-token system -- limits a leaked token to a single use before it stops working silently.
+
+        :param refresh_token_request: (required)
+        :type refresh_token_request: RefreshTokenRequest
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._login_refresh_serialize(
+            refresh_token_request=refresh_token_request,
+            _request_auth=None,
+            _content_type=None,
+            _headers=None,
+            _host_index=0
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "Token",
+            '422': "HTTPValidationError",
+        }
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def login_refresh_without_preload_content(
+        self,
+        refresh_token_request: RefreshTokenRequest,
+        _request_timeout: Optional[Union[float, Tuple[float, float]]] = None,
+    ) -> RESTResponseType:
+        """Login Refresh
+
+        Exchange a refresh token for a new access token, rotating the refresh token.  No Firebase round-trip -- this is the whole point (a long-running script/CLI can stay authenticated without re-prompting for credentials). Tier comes from a live Firebase custom-claims lookup (_firebase_stripe_role), same source get_current_user_tier's own CF-service-token path already uses, since there's no fresh ID token here to read a stripeRole claim off of directly. Rotation: the presented refresh token is revoked and a new one issued on every successful call, same principle as any refresh-token system -- limits a leaked token to a single use before it stops working silently.
+
+        :param refresh_token_request: (required)
+        :type refresh_token_request: RefreshTokenRequest
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._login_refresh_serialize(
+            refresh_token_request=refresh_token_request,
+            _request_auth=None,
+            _content_type=None,
+            _headers=None,
+            _host_index=0
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "Token",
+            '422': "HTTPValidationError",
+        }
+
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _login_refresh_serialize(
+        self,
+        refresh_token_request,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if refresh_token_request is not None:
+            _body_params = refresh_token_request
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/api/v1/login/refresh',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

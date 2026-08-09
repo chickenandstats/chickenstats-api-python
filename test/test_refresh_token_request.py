@@ -15,10 +15,10 @@
 
 import unittest
 
-from chickenstats_api.models.token import Token
+from chickenstats_api.models.refresh_token_request import RefreshTokenRequest
 
-class TestToken(unittest.TestCase):
-    """Token unit test stubs"""
+class TestRefreshTokenRequest(unittest.TestCase):
+    """RefreshTokenRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -26,28 +26,26 @@ class TestToken(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> Token:
-        """Test Token
+    def make_instance(self, include_optional) -> RefreshTokenRequest:
+        """Test RefreshTokenRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `Token`
+        # uncomment below to create an instance of `RefreshTokenRequest`
         """
-        model = Token()
+        model = RefreshTokenRequest()
         if include_optional:
-            return Token(
-                access_token = '',
-                token_type = 'bearer',
+            return RefreshTokenRequest(
                 refresh_token = ''
             )
         else:
-            return Token(
-                access_token = '',
+            return RefreshTokenRequest(
+                refresh_token = '',
         )
         """
 
-    def testToken(self):
-        """Test Token"""
+    def testRefreshTokenRequest(self):
+        """Test RefreshTokenRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **access_token** | **str** |  | 
 **token_type** | **str** |  | [optional] [default to 'bearer']
+**refresh_token** | **str** |  | [optional] 
 
 ## Example
 

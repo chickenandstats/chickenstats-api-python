@@ -19,18 +19,16 @@ import re  # noqa: F401
 import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Token(BaseModel):
+class RefreshTokenRequest(BaseModel):
     """
-    Token
+    RefreshTokenRequest
     """ # noqa: E501
-    access_token: StrictStr
-    token_type: Optional[StrictStr] = 'bearer'
-    refresh_token: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["access_token", "token_type", "refresh_token"]
+    refresh_token: StrictStr
+    __properties: ClassVar[List[str]] = ["refresh_token"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -50,7 +48,7 @@ class Token(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Token from a JSON string"""
+        """Create an instance of RefreshTokenRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -71,16 +69,11 @@ class Token(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if refresh_token (nullable) is None
-        # and model_fields_set contains the field
-        if self.refresh_token is None and "refresh_token" in self.model_fields_set:
-            _dict['refresh_token'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Token from a dict"""
+        """Create an instance of RefreshTokenRequest from a dict"""
         if obj is None:
             return None
 
@@ -88,8 +81,6 @@ class Token(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "access_token": obj.get("access_token"),
-            "token_type": obj.get("token_type") if obj.get("token_type") is not None else 'bearer',
             "refresh_token": obj.get("refresh_token")
         })
         return _obj

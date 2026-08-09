@@ -41,6 +41,7 @@ from chickenstats_api.models.pred_goal_row import PredGoalRow
 from chickenstats_api.models.programmatic_credentials import ProgrammaticCredentials
 from chickenstats_api.models.rapm_response import RapmResponse
 from chickenstats_api.models.rapm_scores import RapmScores
+from chickenstats_api.models.refresh_token_request import RefreshTokenRequest
 from chickenstats_api.models.roster_public import RosterPublic
 from chickenstats_api.models.roster_response import RosterResponse
 from chickenstats_api.models.shifts_public import ShiftsPublic
