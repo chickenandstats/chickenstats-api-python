@@ -18,23 +18,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt
+from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
-from chickenstats_api.models.team_stats_game import TeamStatsGame
 from typing import Optional, Set
 from typing_extensions import Self
 
-class TeamStatsGameResponse(BaseModel):
+class RefreshTokenRequest(BaseModel):
     """
-    TeamStatsGameResponse
+    RefreshTokenRequest
     """ # noqa: E501
-    count: StrictInt
-    total: StrictInt
-    limit: StrictInt
-    offset: StrictInt
-    has_next: StrictBool
-    data: List[TeamStatsGame]
-    __properties: ClassVar[List[str]] = ["count", "total", "limit", "offset", "has_next", "data"]
+    refresh_token: StrictStr
+    __properties: ClassVar[List[str]] = ["refresh_token"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -54,7 +48,7 @@ class TeamStatsGameResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of TeamStatsGameResponse from a JSON string"""
+        """Create an instance of RefreshTokenRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,18 +69,11 @@ class TeamStatsGameResponse(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in data (list)
-        _items = []
-        if self.data:
-            for _item_data in self.data:
-                if _item_data:
-                    _items.append(_item_data.to_dict())
-            _dict['data'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of TeamStatsGameResponse from a dict"""
+        """Create an instance of RefreshTokenRequest from a dict"""
         if obj is None:
             return None
 
@@ -94,12 +81,7 @@ class TeamStatsGameResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "count": obj.get("count"),
-            "total": obj.get("total"),
-            "limit": obj.get("limit"),
-            "offset": obj.get("offset"),
-            "has_next": obj.get("has_next"),
-            "data": [TeamStatsGame.from_dict(_item) for _item in obj["data"]] if obj.get("data") is not None else None
+            "refresh_token": obj.get("refresh_token")
         })
         return _obj
 

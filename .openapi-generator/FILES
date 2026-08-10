@@ -53,6 +53,7 @@ chickenstats_api/models/pred_goal_row.py
 chickenstats_api/models/programmatic_credentials.py
 chickenstats_api/models/rapm_response.py
 chickenstats_api/models/rapm_scores.py
+chickenstats_api/models/refresh_token_request.py
 chickenstats_api/models/roster_public.py
 chickenstats_api/models/roster_response.py
 chickenstats_api/models/shifts_public.py
@@ -119,6 +120,7 @@ docs/ProgrammaticCredentials.md
 docs/RapmApi.md
 docs/RapmResponse.md
 docs/RapmScores.md
+docs/RefreshTokenRequest.md
 docs/RosterPublic.md
 docs/RosterResponse.md
 docs/RostersApi.md
@@ -197,6 +199,7 @@ test/test_programmatic_credentials.py
 test/test_rapm_api.py
 test/test_rapm_response.py
 test/test_rapm_scores.py
+test/test_refresh_token_request.py
 test/test_roster_public.py
 test/test_roster_response.py
 test/test_rosters_api.py

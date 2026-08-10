@@ -5,6 +5,7 @@ All URIs are relative to *https://api.chickenstats.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**login_firebase_token**](LoginApi.md#login_firebase_token) | **POST** /api/v1/login/firebase-token | Login Firebase Token
+[**login_refresh**](LoginApi.md#login_refresh) | **POST** /api/v1/login/refresh | Login Refresh
 [**login_verify_token**](LoginApi.md#login_verify_token) | **POST** /api/v1/login/verify-token | Login Verify Token
 [**recover_password**](LoginApi.md#recover_password) | **POST** /api/v1/password-recovery/{email} | Recover Password
 [**recover_password_html_content**](LoginApi.md#recover_password_html_content) | **POST** /api/v1/password-recovery-html-content/{email} | Recover Password Html Content
@@ -86,6 +87,86 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/x-www-form-urlencoded
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **login_refresh**
+> Token login_refresh(refresh_token_request)
+
+Login Refresh
+
+Exchange a refresh token for a new access token, rotating the refresh token.
+
+No Firebase round-trip -- this is the whole point (a long-running
+script/CLI can stay authenticated without re-prompting for
+credentials). Tier comes from a live Firebase custom-claims lookup
+(_firebase_stripe_role), same source get_current_user_tier's own
+CF-service-token path already uses, since there's no fresh ID token
+here to read a stripeRole claim off of directly. Rotation: the
+presented refresh token is revoked and a new one issued on every
+successful call, same principle as any refresh-token system -- limits
+a leaked token to a single use before it stops working silently.
+
+### Example
+
+
+```python
+import chickenstats_api
+from chickenstats_api.models.refresh_token_request import RefreshTokenRequest
+from chickenstats_api.models.token import Token
+from chickenstats_api.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://api.chickenstats.com
+# See configuration.py for a list of all supported configuration parameters.
+configuration = chickenstats_api.Configuration(
+    host = "https://api.chickenstats.com"
+)
+
+
+# Enter a context with an instance of the API client
+with chickenstats_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = chickenstats_api.LoginApi(api_client)
+    refresh_token_request = chickenstats_api.RefreshTokenRequest() # RefreshTokenRequest | 
+
+    try:
+        # Login Refresh
+        api_response = api_instance.login_refresh(refresh_token_request)
+        print("The response of LoginApi->login_refresh:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling LoginApi->login_refresh: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **refresh_token_request** | [**RefreshTokenRequest**](RefreshTokenRequest.md)|  | 
+
+### Return type
+
+[**Token**](Token.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

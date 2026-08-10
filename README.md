@@ -2,8 +2,8 @@
 
 API for downloading NHL data
 
-- API version: 0.1.5
-- Package version: 0.1.5
+- API version: 0.1.6
+- Package version: 0.1.6
 
 ## Requirements
 
@@ -82,6 +82,7 @@ Class | Method | HTTP request | Description
 *LiveApi* | [**read_live_games**](docs/LiveApi.md#read_live_games) | **GET** /api/v1/live/games | Read Live Games
 *LiveApi* | [**read_live_pbp**](docs/LiveApi.md#read_live_pbp) | **GET** /api/v1/live/play_by_play | Read Live Pbp
 *LoginApi* | [**login_firebase_token**](docs/LoginApi.md#login_firebase_token) | **POST** /api/v1/login/firebase-token | Login Firebase Token
+*LoginApi* | [**login_refresh**](docs/LoginApi.md#login_refresh) | **POST** /api/v1/login/refresh | Login Refresh
 *LoginApi* | [**login_verify_token**](docs/LoginApi.md#login_verify_token) | **POST** /api/v1/login/verify-token | Login Verify Token
 *LoginApi* | [**recover_password**](docs/LoginApi.md#recover_password) | **POST** /api/v1/password-recovery/{email} | Recover Password
 *LoginApi* | [**recover_password_html_content**](docs/LoginApi.md#recover_password_html_content) | **POST** /api/v1/password-recovery-html-content/{email} | Recover Password Html Content
@@ -144,6 +145,7 @@ Class | Method | HTTP request | Description
  - [ProgrammaticCredentials](docs/ProgrammaticCredentials.md)
  - [RapmResponse](docs/RapmResponse.md)
  - [RapmScores](docs/RapmScores.md)
+ - [RefreshTokenRequest](docs/RefreshTokenRequest.md)
  - [RosterPublic](docs/RosterPublic.md)
  - [RosterResponse](docs/RosterResponse.md)
  - [ShiftsPublic](docs/ShiftsPublic.md)

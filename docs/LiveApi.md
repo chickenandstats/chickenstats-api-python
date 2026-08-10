@@ -15,6 +15,7 @@ Read Live Games
 
 ### Example
 
+* OAuth Authentication (OAuth2PasswordBearer):
 
 ```python
 import chickenstats_api
@@ -28,6 +29,12 @@ configuration = chickenstats_api.Configuration(
     host = "https://api.chickenstats.com"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with chickenstats_api.ApiClient(configuration) as api_client:
@@ -55,7 +62,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
