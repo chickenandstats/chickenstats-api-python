@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **season** | **int** |  | 
 **session** | **str** |  | 
 **base_xg** | **float** |  | 
+**context_xg** | **float** |  | 
 **pred_goal** | **float** |  | 
 
 ## Example

@@ -15,6 +15,7 @@ Read Player
 
 ### Example
 
+* OAuth Authentication (OAuth2PasswordBearer):
 
 ```python
 import chickenstats_api
@@ -28,6 +29,12 @@ configuration = chickenstats_api.Configuration(
     host = "https://api.chickenstats.com"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with chickenstats_api.ApiClient(configuration) as api_client:
@@ -59,7 +66,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 
@@ -76,12 +83,13 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_players**
-> PlayerResponse read_players(name=name, position=position, eh_id=eh_id, limit=limit, offset=offset)
+> PlayerResponse read_players(name=name, eh_id=eh_id, api_id=api_id, limit=limit, offset=offset)
 
 Read Players
 
 ### Example
 
+* OAuth Authentication (OAuth2PasswordBearer):
 
 ```python
 import chickenstats_api
@@ -95,20 +103,26 @@ configuration = chickenstats_api.Configuration(
     host = "https://api.chickenstats.com"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with chickenstats_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = chickenstats_api.PlayersApi(api_client)
-    name = 'name_example' # str |  (optional)
-    position = 'position_example' # str |  (optional)
-    eh_id = 'eh_id_example' # str |  (optional)
+    name = ['name_example'] # List[str] |  (optional)
+    eh_id = ['eh_id_example'] # List[str] |  (optional)
+    api_id = [56] # List[int] |  (optional)
     limit = 10000 # int |  (optional) (default to 10000)
     offset = 0 # int |  (optional) (default to 0)
 
     try:
         # Read Players
-        api_response = api_instance.read_players(name=name, position=position, eh_id=eh_id, limit=limit, offset=offset)
+        api_response = api_instance.read_players(name=name, eh_id=eh_id, api_id=api_id, limit=limit, offset=offset)
         print("The response of PlayersApi->read_players:\n")
         pprint(api_response)
     except Exception as e:
@@ -122,9 +136,9 @@ with chickenstats_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**|  | [optional] 
- **position** | **str**|  | [optional] 
- **eh_id** | **str**|  | [optional] 
+ **name** | [**List[str]**](str.md)|  | [optional] 
+ **eh_id** | [**List[str]**](str.md)|  | [optional] 
+ **api_id** | [**List[int]**](int.md)|  | [optional] 
  **limit** | **int**|  | [optional] [default to 10000]
  **offset** | **int**|  | [optional] [default to 0]
 
@@ -134,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[OAuth2PasswordBearer](../README.md#OAuth2PasswordBearer)
 
 ### HTTP request headers
 

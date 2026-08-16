@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **read_team_stats_ids**
-> List[Optional[str]] read_team_stats_ids(season=season, sessions=sessions, limit=limit, offset=offset)
+> List[str] read_team_stats_ids(season=season, sessions=sessions, limit=limit, offset=offset)
 
 Read Team Stats Ids
 
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**List[Optional[str]]**
+**List[str]**
 
 ### Authorization
 
